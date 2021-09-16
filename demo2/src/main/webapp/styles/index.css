@@ -1,0 +1,92 @@
+html {
+    width: 100%;
+}
+
+body {
+    background-color: #f5f5f7;
+    /*margin: 14px 28px;*/
+}
+
+#head {
+    display: block;
+    width: 80%;
+}
+
+h2 {
+    display: inline;
+    font-size: 28px;
+    color: #1d1d1f;
+    margin: 14px 0px 0px 28px;
+}
+
+span {
+    font-size: 28px;
+    color: #6e6e73;
+    margin-top: 14px;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.commodity {
+    background-color: #fff;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+    overflow: hidden;
+    position: relative;
+    white-space: normal;
+    width: 313px;
+    box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 30px;
+}
+
+.commodity:hover {
+    animation: all .3s cubic-bezier(0, 0, .5, 1) alternate forwards;
+}
+
+@keyframes all {
+    from {
+        box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    to {
+        box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.6);
+    }
+}
+
+.name, .price {
+    box-sizing: border-box;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 100%;
+    color: #1d1d1f;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+img {
+    width: 250px;
+    margin: 0px 15px;
+}
+
+div {
+    margin: 20px;
+    clear: both;
+    display: flex;
+}
+
+#cart {
+    color: #1d1d1f;
+    margin-left: 200px;
+}
+
+.button {
+    float: right;
+    height: 36.8px;
+}
