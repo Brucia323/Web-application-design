@@ -10,26 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf529482-cd09-400c-82ca-904e528fe1d7" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/demo3_war.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/demo3_war_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_4_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_7_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_7_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_7_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_7_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo3.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/enroll.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/demo2/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo2/src/main/java/com/example/demo2/Cart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/demo2/DBHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo2/src/main/java/com/example/demo2/DBHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/demo2/Mobile.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo2/src/main/java/com/example/demo2/Mobile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/styles/cart.css" beforeDir="false" afterPath="$PROJECT_DIR$/../demo2/src/main/webapp/styles/cart.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo3/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo3/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,6 +144,8 @@
       <updated>1632272120338</updated>
       <workItem from="1632272121945" duration="197000" />
       <workItem from="1632272348161" duration="15388000" />
+      <workItem from="1632378061289" duration="56000" />
+      <workItem from="1632378362991" duration="2000" />
     </task>
     <servers />
   </component>
