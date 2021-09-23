@@ -1,7 +1,8 @@
-html{
+html {
     width: 100%;
 }
-#header{
+
+#header {
     text-align: center;
     padding-bottom: 60px;
     padding-top: 10px;
@@ -9,7 +10,8 @@ html{
     flex-basis: 100%;
     max-width: 100%;
 }
-h1{
+
+h1 {
     margin: 0px;
     color: #1d1d1f;
     font-size: 40px;
@@ -17,7 +19,8 @@ h1{
     letter-spacing: 0;
     padding-bottom: 2px;
 }
-button{
+
+button {
     cursor: pointer;
     text-align: center;
     font-size: 17px;
@@ -28,20 +31,24 @@ button{
     background: #0071e3;
     color: #fff;
 }
-#list{
+
+#list {
     display: inline-block;
     width: 100%;
 }
-#type{
+
+#type {
     float: left;
     margin-left: 100px;
 }
-#number{
+
+#number {
     float: right;
     margin-right: 400px;
     padding-top: 30px;
 }
-#price{
+
+#price {
     float: right;
     margin-right: 300px;
     padding-top: 10px;
