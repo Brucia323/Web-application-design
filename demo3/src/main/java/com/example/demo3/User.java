@@ -60,7 +60,7 @@ public class User extends HttpServlet {
                 preparedStatement.executeUpdate();
                 out.println("<html><body>");
                 out.println("注册成功！3s后返回登录界面");
-                response.setHeader("refresh","3;url=index.jsp");
+                response.setHeader("refresh", "3;url=index.jsp");
             }
             out.println("</body></html>");
             assert resultSet != null;
