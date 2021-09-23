@@ -5,6 +5,12 @@ public class Mobile {
     private String type;
     private int price;
 
+    public Mobile(int id, String type, int price) {
+        this.id = id;
+        this.type = type;
+        this.price = price;
+    }
+
     public int getId() {
         return id;
     }
@@ -26,12 +32,6 @@ public class Mobile {
     }
 
     public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public Mobile(int id, String type, int price) {
-        this.id = id;
-        this.type = type;
         this.price = price;
     }
 }
