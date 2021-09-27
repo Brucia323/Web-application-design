@@ -10,13 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf529482-cd09-400c-82ca-904e528fe1d7" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/demo2/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo2/src/main/java/com/example/demo2/Cart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/demo2/DBHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo2/src/main/java/com/example/demo2/DBHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo2/src/main/java/com/example/demo2/Mobile.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo2/src/main/java/com/example/demo2/Mobile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo2/src/main/webapp/styles/cart.css" beforeDir="false" afterPath="$PROJECT_DIR$/../demo2/src/main/webapp/styles/cart.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/1.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo3/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo3/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,6 +141,7 @@
       <workItem from="1632272348161" duration="15388000" />
       <workItem from="1632378061289" duration="56000" />
       <workItem from="1632378362991" duration="2000" />
+      <workItem from="1632734831593" duration="84000" />
     </task>
     <servers />
   </component>
