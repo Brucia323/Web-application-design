@@ -10,10 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a0b231d-9606-4b82-a4ed-c2d2fc5980ec" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/../demo3/src/main/resources/1.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/1.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo3/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo3/src/main/java/com/example/demo3/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../demo3/src/main/java/com/example/demo3/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo4/ShangPin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo4/ShangPin.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -121,6 +117,7 @@
       <workItem from="1632713395989" duration="9915000" />
       <workItem from="1632728918718" duration="3355000" />
       <workItem from="1632734926622" duration="37000" />
+      <workItem from="1632826600355" duration="75000" />
     </task>
     <servers />
   </component>
