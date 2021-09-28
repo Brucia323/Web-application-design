@@ -22,7 +22,7 @@ public class ShangPin extends HttpServlet {
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     try {
                         Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ShangPinGuanLi", "root", "20010323");
-                        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO ShangPin(name,price) VALUES (" + name + "," + price + ")");
+                        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO ShangPin(name,price) VALUES ('" + name + "','" + price + "')");
                         int result = preparedStatement.executeUpdate();
                         PrintWriter out = response.getWriter();
                         if (result > 0) {
