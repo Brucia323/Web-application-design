@@ -1,0 +1,30 @@
+.huati {
+    background-color: #fff;
+    border-radius: 18px;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*height: 600px;*/
+    /*overflow: hidden;*/
+    position: relative;
+    white-space: normal;
+    /*width: 313px;*/
+    box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);
+    /*float: left;*/
+    /*margin-right: 20px;*/
+    /*margin-bottom: 30px;*/
+    margin: 20px 30px;
+    padding: 30px;
+}
+
+.huati:hover {
+    animation: all .3s cubic-bezier(0, 0, .5, 1) alternate forwards;
+}
+
+@keyframes all {
+    from {
+        box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    to {
+        box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.6);
+    }
+}
