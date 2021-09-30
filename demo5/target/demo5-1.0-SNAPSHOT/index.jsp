@@ -12,6 +12,7 @@
 <head>
     <meta charset="UTF-8">
     <title>首页</title>
+    <link rel="stylesheet" href="styles/huati.css">
 </head>
 <body>
 <a href="Login.jsp">
@@ -31,7 +32,7 @@
         PreparedStatement preparedStatement = connection.prepareStatement("SELECT huati.id,title,zan,huifu,top,jing,userid,time,name FROM huati,user WHERE huati.userid = user.id");
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
-            out.println("<div>");
+            out.println("<div class='huati'>");
             out.println("<h2>" + resultSet.getString(9) + "</h2>" + resultSet.getString(8));
             out.println("<h3>" + resultSet.getString(2) + "</h3>");
             RandomAccessFile randomAccessFile = new RandomAccessFile("huati" + resultSet.getString(1) + ".txt", "r");
