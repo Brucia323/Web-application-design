@@ -10,6 +10,7 @@
 <html>
 <head>
     <title>首页</title>
+    <link rel="stylesheet" href="styles/huati.css">
 </head>
 <body>
 <%
@@ -47,16 +48,19 @@
                 PreparedStatement preparedStatement = connection.prepareStatement("SELECT huati.id,title,zan,huifu,top,jing,userid,time,name FROM huati,user WHERE huati.userid = user.id");
                 ResultSet resultSet = preparedStatement.executeQuery();
                 while (resultSet.next()) {
-                    out.println("<div>");
+                    out.println("<a href='XiangXi.jsp?id=" + resultSet.getString(1) + "&userid=" + request.getParameter("id") + "' target='_blank'><div class='huati' id='" + resultSet.getString(1) + "'>");
                     out.println("<h2>" + resultSet.getString(9) + "</h2>" + resultSet.getString(8));
-                    out.println("<h3>" + resultSet.getString(2) + "</h3>");
+                    if (resultSet.getString(6).equals("1")) {
+                        out.println("<h3 color='red' border=1 float=left>精</h3>");
+                    }
+                    out.println("<h3 float=left>" + resultSet.getString(2) + "</h3>");
                     RandomAccessFile randomAccessFile = new RandomAccessFile("huati" + resultSet.getString(1) + ".txt", "r");
                     String huaTi = new String(randomAccessFile.readLine().getBytes("ISO-8859-1"), "gbk");
                     randomAccessFile.close();
                     out.println("<p>" + huaTi + "</p>");
                     out.println("<a href='DianZanServlet?id=" + resultSet.getString(1) + "&userid=" + request.getParameter("id") + "'><button>👍" + resultSet.getString(3) + "</button></a>");
-                    out.println("💬" + resultSet.getString(4));
-                    out.println("</div>");
+                    out.println("<a href='XiangXi.jsp?id=" + resultSet.getString(1) + "&userid=" + request.getParameter("id") + "' target='_blank'><button>💬" + resultSet.getString(4) + "</button></a>");
+                    out.println("</div></a>");
                 }
                 resultSet.close();
                 preparedStatement.close();
