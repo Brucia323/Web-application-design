@@ -1,6 +1,5 @@
 package com.example.demo5;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -11,7 +10,7 @@ import java.sql.*;
 @WebServlet(name = "DianZanServlet", value = "/DianZanServlet")
 public class DianZanServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         int userid = Integer.parseInt(request.getParameter("userid"));
         try {
@@ -29,19 +28,19 @@ public class DianZanServlet extends HttpServlet {
                 preparedStatement = connection.prepareStatement("UPDATE huati SET zan=zan-1 WHERE id='" + id + "'");
                 preparedStatement.executeUpdate();
             } else {
-                preparedStatement=connection.prepareStatement("INSERT INTO dianzan (userid, huatiid) VALUES ('"+userid+"','"+id+"')");
+                preparedStatement = connection.prepareStatement("INSERT INTO dianzan (userid, huatiid) VALUES ('" + userid + "','" + id + "')");
                 preparedStatement.executeUpdate();
                 preparedStatement = connection.prepareStatement("UPDATE huati SET zan=zan+1 WHERE id='" + id + "'");
                 preparedStatement.executeUpdate();
             }
-            response.setHeader("refresh", "0;url=main.jsp?id=" + request.getParameter("userid"));
+            response.setHeader("refresh", "0;url=main.jsp?id=" + request.getParameter("userid") + "#" + request.getParameter("id") + "");
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 
     }
 }
