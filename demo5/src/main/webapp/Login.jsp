@@ -7,8 +7,8 @@
 <body>
 <h1>登录</h1>
 <form method="post" action="LoginServlet">
-    用户名：<input type="text" name="username">
-    密码：<input type="password" name="password">
+    用户名：<input type="text" name="username" required maxlength="40"><br>
+    密码：<input type="password" name="password" required maxlength="20"><br>
     <button type="submit">登录</button>
 </form>
 <a href="Enroll.jsp">
