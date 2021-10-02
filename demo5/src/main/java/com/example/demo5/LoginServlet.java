@@ -15,7 +15,7 @@ public class LoginServlet extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
         PrintWriter out = resp.getWriter();
-        User user = new User(req.getParameter("username"), req.getParameter("password"));
+        User user = new User(req.getParameter("username"), req.getParameter("password")); // 传递用户名和密码
         if (user.login()) {
             out.println("登录成功！3s后跳转...");
             resp.setHeader("refresh", "3;url=main.jsp?id=" + user.getId());
