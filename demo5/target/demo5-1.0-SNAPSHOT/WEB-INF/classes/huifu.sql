@@ -6,7 +6,8 @@ create table huifu
     huifu   int default 0 not null,
     top     int default 0 not null,
     userid  int           not null,
-    time    datetime      not null
+    time    datetime      not null,
+    huifuid int default 0 not null
 );
 
 create unique index huifu_id_uindex
