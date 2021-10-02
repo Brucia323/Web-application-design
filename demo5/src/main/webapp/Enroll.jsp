@@ -13,9 +13,9 @@
 <body>
 <h1>注册</h1>
 <form method="post" action="EnrollServlet">
-    用户名：<input type="text" name="username">
-    密码：<input type="password" name="password">
-    身份：<input type="checkbox" name="manager" value="true">管理员
+    用户名：<input type="text" name="username" required maxlength="40"><br>
+    密码：<input type="password" name="password" required maxlength="20"><br>
+    管理员身份代码：<input type="password" name="manager"><br>
     <button type="submit">注册</button>
 </form>
 <a href="index.jsp">
