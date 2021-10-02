@@ -16,13 +16,13 @@ public class EnrollServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
         int isManager;
-        if (request.getParameter("manager") != null) {
-            isManager = 1;
+        if (request.getParameter("manager").equals("123")) {
+            isManager = 1; // 是管理员
         } else {
-            isManager = 0;
+            isManager = 0; // 不是管理员
         }
-        User user = new User(request.getParameter("username"), request.getParameter("password"));
-        user.setManager(isManager);
+        User user = new User(request.getParameter("username"), request.getParameter("password")); // 传递用户名和密码
+        user.setManager(isManager); // 传递管理员身份标识
         if (user.enroll()) {
             out.println("注册成功！3s后跳转...");
             response.setHeader("refresh", "3;url=Login.jsp");
