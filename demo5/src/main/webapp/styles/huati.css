@@ -1,3 +1,23 @@
+body {
+    background-color: rgb(242, 242, 247);
+}
+
+nav {
+    position: sticky;
+    top: 0px;
+    backdrop-filter: saturate(180%) blur(20px);
+    padding: 10px 30px;
+    z-index: 99;
+    height: 30px;
+    text-align: center;
+}
+nav>a{
+    float: left;
+}
+nav div{
+    float: right;
+}
+
 .huati {
     background-color: #fff;
     border-radius: 18px;
@@ -24,4 +44,38 @@
 a {
     text-decoration: none;
     color: black;
+}
+
+.dian {
+    float: right;
+}
+
+.dian:hover .more {
+    display: block;
+}
+
+.more {
+    display: none;
+    position: relative;
+    padding: 10px 5px;
+    backdrop-filter: saturate(180%) blur(20px);
+    border-radius: 18px;
+    white-space: normal;
+    box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.more li {
+    list-style: none;
+    text-align: center;
+    padding: 5px;
+}
+
+.more li:hover {
+    border-radius: 18px;
+    background-color: rgb(199, 199, 204);
+}
+
+.more li a {
+    text-decoration: none;
+    font-size: large;
 }
