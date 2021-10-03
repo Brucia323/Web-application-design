@@ -13,10 +13,10 @@
 <body>
 <form action="NewServlet" method="get">
     <%
-        out.println("ID:<input name=\"id\" type=\"text\" hidden readonly value=\"" + request.getParameter("id") + "\"><br>");
+        out.println("<input name=\"id\" type=\"text\" hidden readonly value=\"" + request.getParameter("id") + "\">");
     %>
     标题：<input type="text" name="title" required maxlength="255"><br>
-    内容：<input type="text" name="content"><br>
+    内容：<input type="text" name="content" required><br>
     <button type="submit">提交</button>
 </form>
 </body>
