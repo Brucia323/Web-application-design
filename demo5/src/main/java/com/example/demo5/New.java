@@ -22,7 +22,7 @@ public class New {
         this.content = content;
     }
 
-    public boolean write() {
+    public boolean write() throws IOException {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver"); // 加载驱动程序
         } catch (ClassNotFoundException e) {
@@ -60,6 +60,7 @@ public class New {
                                 return false;
                             } catch (IOException ex) {
                                 e.printStackTrace();
+                                randomAccessFile.close();
                                 resultSet.close();
                                 preparedStatement.close();
                                 connection.close();
