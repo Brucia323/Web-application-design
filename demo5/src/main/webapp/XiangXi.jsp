@@ -58,7 +58,7 @@
             out.println("<a href='XiangXi.jsp?id=" + resultSet.getString(1) + "&userid=" + request.getParameter("userid") + "#huifu'><button>💬" + resultSet.getString(4) + "</button></a>"); // 评论 跳转
             out.println("</div>");
         }
-        preparedStatement = connection.prepareStatement("SELECT huifu.id, zan, huatiid, zan, huifu, top, userid, time, huifuid, name FROM huifu, user WHERE huifu.userid = user.id AND huatiid = '" + huaTiId + "' ORDER BY huifu.id, top DESC"); // 加载评论
+        preparedStatement = connection.prepareStatement("SELECT huifu.id, zan, huatiid, zan, huifu, top, userid, time, huifuid, name FROM huifu, user WHERE huifu.userid = user.id AND huatiid = '" + huaTiId + "'"); // 加载评论
         resultSet = preparedStatement.executeQuery(); // 执行查询语句
         while (resultSet.next()) {
             out.println("<div class='huati' id='" + resultSet.getString(1) + "'>"); // ID用于跳转
@@ -67,15 +67,15 @@
                 out.println("<h2>" + resultSet.getString(10) + "</h2>" + resultSet.getString(8)); // 用户名 时间
             } else {
                 // 回复话题下的其他回复
-                preparedStatement = connection.prepareStatement("SELECT name FROM huifu, user WHERE huifu.userid = user.id AND huifu.id = '" + resultSet.getString(9) + "'"); // 查询被回复用户名
-                ResultSet resultSet1 = preparedStatement.executeQuery(); // 执行查询语句
+                PreparedStatement preparedStatement1 = connection.prepareStatement("SELECT name FROM huifu, user WHERE huifu.userid = user.id AND huifu.id = '" + resultSet.getString(9) + "'"); // 查询被回复用户名
+                ResultSet resultSet1 = preparedStatement1.executeQuery(); // 执行查询语句
                 if (resultSet1.next()) {
                     out.println("<h2>" + resultSet.getString(10) + "回复" + resultSet1.getString(1) + "</h2>" + resultSet.getString(8)); // 用户B回复用户A 时间
                 }
                 resultSet1.close();
             }
             RandomAccessFile randomAccessFile = new RandomAccessFile("huifu" + resultSet.getString(1) + ".txt", "r"); // 打开文件
-            String huiFu = new String(randomAccessFile.readLine().getBytes(StandardCharsets.ISO_8859_1), "gbk"); // 读取内容
+            String huiFu = new String(randomAccessFile.readLine().getBytes("ISO_8859_1"), "GBK"); // 读取内容
             randomAccessFile.close();
             out.println("<p>" + huiFu + "</p>"); // 内容
             out.println("<a href='DianZanServlet?id=" + resultSet.getString(1) + "&userid=" + request.getParameter("userid") + "&huifuid=" + resultSet.getString(1) + "'><button>👍" + resultSet.getString(2) + "</button></a>"); // 点赞
@@ -83,7 +83,7 @@
             out.println("<input type='text' name='userid' readonly hidden value='" + request.getParameter("userid") + "'>"); // 用户ID
             out.println("<input type='text' name='id' readonly hidden value='" + request.getParameter("id") + "'>"); // 话题ID
             out.println("<input type='text' name='huifuid' readonly hidden value='" + resultSet.getString(1) + "'>"); // 回复ID
-            out.println("回复：<input type='text' name='huifu'>");
+            out.println("回复：<input type='text' name='huifupinglun'>");
             out.println("<button type='submit'>提交</button");
         }
         resultSet.close();
@@ -98,7 +98,7 @@
         out.println("<input type='text' name='userid' readonly hidden value='" + request.getParameter("userid") + "'><br>"); // 用户ID
         out.println("<input type='text' name='id' readonly hidden value='" + request.getParameter("id") + "'><br>"); // 话题ID
     %>
-    回复：<input type="text" name="huifu"><br>
+    回复：<input type="text" name="huifuhuati"><br>
     <button type="submit">提交</button>
 </form>
 </body>
