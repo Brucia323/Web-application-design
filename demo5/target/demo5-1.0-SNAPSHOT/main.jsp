@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="styles/huati.css">
 </head>
 <body>
+<nav>
 <%
     try {
         Class.forName("com.mysql.cj.jdbc.Driver"); // 加载驱动程序
@@ -25,18 +26,20 @@
         PreparedStatement preparedStatement = connection.prepareStatement("SELECT name, manager FROM user WHERE id = '" + request.getParameter("id") + "'"); // 加载用户名和身份信息
         ResultSet resultSet = preparedStatement.executeQuery(); // 执行查询语句
         if (resultSet.next()) {
-            out.println("ID:" + request.getParameter("id"));
-            out.println("用户名:" + resultSet.getString(1));
-            out.println("<a href='index.jsp'><button>退出</button></a>");
-            out.println("<div>");
             if (resultSet.getString(2).equals("1")) {
                 out.println("<a href='New.jsp?id=" + request.getParameter("id") + "'><button>新建话题</button></a>");
             }
+            out.println("<div>");
+            out.println("ID:" + request.getParameter("id"));
+            out.println("用户名:" + resultSet.getString(1));
+            out.println("<a href='index.jsp'><button>退出</button></a>");
+            out.println("</div>");
         }
     } catch (SQLException e) {
         e.printStackTrace();
     }
 %>
+</nav>
 <div>
     <%
         try {
@@ -56,11 +59,25 @@
                 }
                 out.println("<h3 float=left>" + resultSet.getString(2) + "</h3>"); // 标题
                 RandomAccessFile randomAccessFile = new RandomAccessFile("huati" + resultSet.getString(1) + ".txt", "r"); // 打开文件
-                String huaTi = new String(randomAccessFile.readLine().getBytes(StandardCharsets.ISO_8859_1), "gbk"); // 读取文件
+                String huaTi = new String(randomAccessFile.readLine().getBytes(StandardCharsets.ISO_8859_1), "GBK"); // 读取文件
                 randomAccessFile.close();
                 out.println("<p>" + huaTi + "</p>"); // 内容
                 out.println("<a href='DianZanServlet?id=" + resultSet.getString(1) + "&userid=" + request.getParameter("id") + "'><button>👍" + resultSet.getString(3) + "</button></a>"); // 点赞按钮
                 out.println("<a href='XiangXi.jsp?id=" + resultSet.getString(1) + "&userid=" + request.getParameter("id") + "#huifu' target='_blank'><button>💬" + resultSet.getString(4) + "</button></a>"); // 评论按钮，直接跳转到详情页评论框
+                PreparedStatement preparedStatement1= connection.prepareStatement("SELECT manager FROM user WHERE id = '" + request.getParameter("id") + "'");
+                ResultSet resultSet1=preparedStatement1.executeQuery();
+                if (resultSet1.next()){
+                    if (resultSet1.getString(1).equals("1")){
+                        out.println("<div class='dian'><a href=''>⚫⚫⚫</a>");
+                        out.println("<ul class='more'>");
+                        out.println("<li><a>置顶</a></li>");
+                        out.println("<li><a>加精</a></li>");
+                        out.println("<li><a>编辑</a></li>");
+                        out.println("<li><a>删除</a></li>");
+                        out.println("</ul>");
+                        out.println("</div>");
+                    }
+                }
                 out.println("</div></a>");
             }
             resultSet.close();
