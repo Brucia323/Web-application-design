@@ -48,10 +48,12 @@ a {
 
 .dian {
     float: right;
+    z-index: 99;
 }
 
 .dian:hover .more {
     display: block;
+    z-index: 99;
 }
 
 .more {
@@ -62,20 +64,26 @@ a {
     border-radius: 18px;
     white-space: normal;
     box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.5);
+    z-index: 99;
 }
 
 .more li {
     list-style: none;
     text-align: center;
     padding: 5px;
+    z-index: 99;
 }
 
 .more li:hover {
-    border-radius: 18px;
     background-color: rgb(199, 199, 204);
+    z-index: 99;
 }
 
 .more li a {
     text-decoration: none;
     font-size: large;
+    z-index: 99;
+}
+.jing{
+    color: red;
 }
