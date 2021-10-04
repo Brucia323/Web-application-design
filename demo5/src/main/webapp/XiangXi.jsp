@@ -30,6 +30,7 @@
             e.printStackTrace();
         }
     %></title>
+    <link rel="stylesheet" href="styles/huati.css">
 </head>
 <body>
 <%
@@ -78,13 +79,14 @@
             String huiFu = new String(randomAccessFile.readLine().getBytes("ISO_8859_1"), "GBK"); // 读取内容
             randomAccessFile.close();
             out.println("<p>" + huiFu + "</p>"); // 内容
-            out.println("<a href='DianZanServlet?id=" + resultSet.getString(1) + "&userid=" + request.getParameter("userid") + "&huifuid=" + resultSet.getString(1) + "'><button>👍" + resultSet.getString(2) + "</button></a>"); // 点赞
+            out.println("<a href='DianZanServlet?id=" + huaTiId + "&userid=" + request.getParameter("userid") + "&huifuid=" + resultSet.getString(1) + "'><button>👍" + resultSet.getString(2) + "</button></a><br><br>"); // 点赞
             out.println("<form action='HuiFuServlet' method='get'>");
             out.println("<input type='text' name='userid' readonly hidden value='" + request.getParameter("userid") + "'>"); // 用户ID
             out.println("<input type='text' name='id' readonly hidden value='" + request.getParameter("id") + "'>"); // 话题ID
             out.println("<input type='text' name='huifuid' readonly hidden value='" + resultSet.getString(1) + "'>"); // 回复ID
             out.println("回复：<input type='text' name='huifupinglun'>");
             out.println("<button type='submit'>提交</button");
+            out.println("</form></div>");
         }
         resultSet.close();
         preparedStatement.close();
@@ -93,13 +95,15 @@
         e.printStackTrace();
     }
 %>
-<form id="huifu" action="HuiFuServlet" method="get">
-    <%
-        out.println("<input type='text' name='userid' readonly hidden value='" + request.getParameter("userid") + "'><br>"); // 用户ID
-        out.println("<input type='text' name='id' readonly hidden value='" + request.getParameter("id") + "'><br>"); // 话题ID
-    %>
-    回复：<input type="text" name="huifuhuati"><br>
-    <button type="submit">提交</button>
-</form>
+<div class="huati">
+    <form id="huifu" action="HuiFuServlet" method="get">
+        <%
+            out.println("<input type='text' name='userid' readonly hidden value='" + request.getParameter("userid") + "'>"); // 用户ID
+            out.println("<input type='text' name='id' readonly hidden value='" + request.getParameter("id") + "'>"); // 话题ID
+        %>
+        回复：<input type="text" name="huifuhuati">
+        <button type="submit">提交</button>
+    </form>
+</div>
 </body>
 </html>
