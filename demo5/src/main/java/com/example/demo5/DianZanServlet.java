@@ -44,7 +44,7 @@ public class DianZanServlet extends HttpServlet {
                 resultSet.close();
                 preparedStatement.close();
                 connection.close();
-                response.setHeader("refresh", "0;url=XiangXi.jsp?id=" + id + "&userid" + userid + "#" + huiFuId); // 跳转回详情页对应回复处
+                response.setHeader("refresh", "0;url=XiangXi.jsp?id=" + id + "&userid=" + userid + "#" + huiFuId); // 跳转回详情页对应回复处
             } else {
                 // 在详情页点赞话题
                 dianZanHuaTi(id, userid, connection);
