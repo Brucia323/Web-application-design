@@ -12,6 +12,7 @@
 <head>
     <title>首页</title>
     <link rel="stylesheet" href="styles/huati.css">
+    <script src="scripts/delete.js"></script>
 </head>
 <body>
 <nav>
@@ -81,7 +82,7 @@
                             out.println("<li><a href='JingServlet?id=" + resultSet.getString(1) + "&userid=" + request.getParameter("id") + "'>取消加精</a></li>");
                         }
                         out.println("<li><a href='edit.jsp?id=" + resultSet.getString(1) + "&userid=" + request.getParameter("id") + "'>编辑</a></li>");
-                        out.println("<li><a href='DeleteServlet?id=" + resultSet.getString(1) + "&userid=" + request.getParameter("id") + "'>删除</a></li>");
+                        out.println("<li onclick='shanchu("+resultSet.getString(1)+","+request.getParameter("id")+")')><a href=''>删除</a></li>");
                         out.println("</ul>");
                         out.println("</div>");
                     }
