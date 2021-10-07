@@ -15,7 +15,7 @@
           <element id="module-output" name="demo5" />
         </element>
         <element id="directory" name="lib">
-          <element id="file-copy" path="$PROJECT_DIR$/../../../../../../mysql-connector-java-8.0.26/mysql-connector-java-8.0.26.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../../../../../Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.26.jar" />
         </element>
       </element>
       <element id="directory" name="META-INF">
