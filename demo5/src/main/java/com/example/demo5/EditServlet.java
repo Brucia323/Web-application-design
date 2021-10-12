@@ -1,5 +1,10 @@
 package com.example.demo5;
 
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.sql.Connection;
@@ -7,17 +12,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-@WebServlet(name = "edit", value = "/edit")
+@WebServlet(name = "EditServlet", value = "/EditServlet")
 public class EditServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String userid = request.getParameter("userid");
         String id = request.getParameter("id");
         String title = request.getParameter("title");
@@ -28,10 +26,8 @@ public class EditServlet extends HttpServlet {
             e.printStackTrace();
         }
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/HuaTi", "root",
-                    "20010323");
-            PreparedStatement preparedStatement = connection
-                    .prepareStatement("UPDATE huati SET title = '" + title + "' WHERE id = '" + id + "'");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/HuaTi", "root", "20010323");
+            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE huati SET title = '" + title + "' WHERE id = '" + id + "'");
             preparedStatement.executeUpdate();
             preparedStatement.close();
             connection.close();
@@ -45,8 +41,7 @@ public class EditServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 }

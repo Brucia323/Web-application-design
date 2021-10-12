@@ -1,14 +1,13 @@
 package com.example.demo5;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 
-@WebServlet(name = "login", value = "/login")
+@WebServlet(name = "LoginServlet", value = "/LoginServlet")
 public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -22,7 +21,7 @@ public class LoginServlet extends HttpServlet {
             resp.setHeader("refresh", "3;url=main.jsp?id=" + user.getId());
         } else {
             out.println("登录失败！5s后返回.....");
-            resp.setHeader("refresh", "5;url=login.html");
+            resp.setHeader("refresh", "5;url=Login.jsp");
         }
     }
 }

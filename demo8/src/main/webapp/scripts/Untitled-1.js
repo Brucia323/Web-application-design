@@ -35,19 +35,13 @@ function sendRequest(url, parameter, method, handler) {
     }
 }
 
-/**
- * 按下键盘时进行联想。
- */
 function search() {
-    var inputWord = document.getElementById('inputWord').value;//输入的内容
+    var inputWord = document.getElementById('inputWord').value;
     var url = "searchsuggest";
     var params = 'inputWord=' + inputWord;
     sendRequest(url, params, 'POST', display);
 }
 
-/**
- * 显示联想内容。
- */
 function display() {
     if (httpRequest.readyState == 4) {
         if (httpRequest.status == 200) {
@@ -60,9 +54,6 @@ function display() {
     }
 }
 
-/**
- * 清除div中的数据。
- */
 function clearDivData() {
     var tbody = document.getElementById('wordsListTbody');
     var trs = tbody.getElementsByTagName('tr');
@@ -71,10 +62,6 @@ function clearDivData() {
     }
 }
 
-/**
- * 修改div中的数据。
- * @param {*} xmlDoc
- */
 function changeDivData(xmlDoc) {
     var words = xmlDoc.getElementsByTagName('word');
     var tbody = document.getElementById('wordsListTbody');
@@ -102,18 +89,12 @@ function changeDivData(xmlDoc) {
     }
 }
 
-/**
- * 选择联想词，自动填充。
- */
 function setText() {
     document.getElementById('inputWord').value = trSrc.firstChild.data;
     document.getElementById('wordsListDiv').style.visibility = "hidden";
 
 }
 
-/**
- * 设置div的位置。
- */
 function setDivPosition() {
     var input = document.getElementById('inputWord');
     var listdiv = document.getElementById('wordsListDiv');

@@ -1,14 +1,13 @@
 package com.example.demo5;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 
-@WebServlet(name = "enroll", value = "/enroll")
+@WebServlet(name = "EnrollServlet", value = "/EnrollServlet")
 public class EnrollServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -26,10 +25,10 @@ public class EnrollServlet extends HttpServlet {
         user.setManager(isManager); // 传递管理员身份标识
         if (user.enroll()) {
             out.println("注册成功！3s后跳转...");
-            response.setHeader("refresh", "3;url=login.html");
+            response.setHeader("refresh", "3;url=Login.jsp");
         } else {
             out.println("注册失败！5s后返回.....");
-            response.setHeader("refresh", "5;url=enroll.html");
+            response.setHeader("refresh", "5;url=Enroll.jsp");
         }
     }
 }

@@ -19,7 +19,7 @@
 <a href="Login.jsp">
     <button>登录</button>
 </a>
-<a href="Enroll.html">
+<a href="Enroll.jsp">
     <button>注册</button>
 </a>
 <%
