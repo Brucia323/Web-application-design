@@ -35,3 +35,30 @@ function sendRequest(url, parameter, method, handler) {
         httpRequest.send(parameter);
     }
 }
+
+function refresh() {
+    var p = document.getElementById("prov").value;
+    var city = document.getElementById("city");
+    if (p == "") {
+        city.options.length = 0;
+        city.options.add(new Option("--请选择城市--"));
+    } else {
+        var url = "list";
+        var parameter = "proc=" + p;
+        sendRequest(url, parameter, "POST", show);
+    }
+}
+
+function show() {
+    var city = document.getElementById("city");
+    if (httpRequest.readyState == 4) {
+        if (httpRequest.status == 200) {
+            var citylist = httpRequest.responseText.split(",");
+            var citynum = citylist.length;
+            city.options.length = 0;
+            for (i = 0; i < citynum; i++) {
+                city.options.add(new Option(citylist[i]));
+            }
+        }
+    }
+}
