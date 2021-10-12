@@ -1,8 +1,8 @@
 create table user
 (
-    id int,
-    name nvarchar(40) not null,
-    password varchar(20) not null
+    id       int,
+    name     nvarchar(40) not null,
+    password varchar(20)  not null
 );
 
 create unique index user_id_uindex
