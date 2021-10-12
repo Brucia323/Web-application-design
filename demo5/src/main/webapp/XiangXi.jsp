@@ -1,6 +1,7 @@
 <%@ page import="java.io.RandomAccessFile" %>
 <%@ page import="java.sql.*" %>
-<%@ page import="java.nio.charset.StandardCharsets" %><%--
+<%@ page import="java.nio.charset.StandardCharsets" %>
+<%--
   Created by IntelliJ IDEA.
   User: ZZZCNY
   Date: 2021/9/30
@@ -55,8 +56,8 @@
             String huaTi = new String(randomAccessFile.readLine().getBytes(StandardCharsets.ISO_8859_1), "gbk"); // 读取文件
             randomAccessFile.close();
             out.println("<p>" + huaTi + "</p>"); // 话题
-            out.println("<a href='DianZanServlet?id=" + resultSet.getString(1) + "&userid=" + request.getParameter("userid") + "&huifuid=0'><button>👍" + resultSet.getString(3) + "</button></a>"); // 点赞
-            out.println("<a href='XiangXi.jsp?id=" + resultSet.getString(1) + "&userid=" + request.getParameter("userid") + "#huifu'><button>💬" + resultSet.getString(4) + "</button></a>"); // 评论 跳转
+            out.println("<a href='dianzan?id=" + resultSet.getString(1) + "&userid=" + request.getParameter("userid") + "&huifuid=0'><button>👍" + resultSet.getString(3) + "</button></a>"); // 点赞
+            out.println("<a href='xiangxi.jsp?id=" + resultSet.getString(1) + "&userid=" + request.getParameter("userid") + "#huifu'><button>💬" + resultSet.getString(4) + "</button></a>"); // 评论 跳转
             out.println("</div>");
         }
         preparedStatement = connection.prepareStatement("SELECT huifu.id, zan, huatiid, zan, huifu, top, userid, time, huifuid, name FROM huifu, user WHERE huifu.userid = user.id AND huatiid = '" + huaTiId + "'"); // 加载评论
@@ -79,8 +80,8 @@
             String huiFu = new String(randomAccessFile.readLine().getBytes("ISO_8859_1"), "GBK"); // 读取内容
             randomAccessFile.close();
             out.println("<p>" + huiFu + "</p>"); // 内容
-            out.println("<a href='DianZanServlet?id=" + huaTiId + "&userid=" + request.getParameter("userid") + "&huifuid=" + resultSet.getString(1) + "'><button>👍" + resultSet.getString(2) + "</button></a><br><br>"); // 点赞
-            out.println("<form action='HuiFuServlet' method='get'>");
+            out.println("<a href='dianzan?id=" + huaTiId + "&userid=" + request.getParameter("userid") + "&huifuid=" + resultSet.getString(1) + "'><button>👍" + resultSet.getString(2) + "</button></a><br><br>"); // 点赞
+            out.println("<form action='huifu' method='get'>");
             out.println("<input type='text' name='userid' readonly hidden value='" + request.getParameter("userid") + "'>"); // 用户ID
             out.println("<input type='text' name='id' readonly hidden value='" + request.getParameter("id") + "'>"); // 话题ID
             out.println("<input type='text' name='huifuid' readonly hidden value='" + resultSet.getString(1) + "'>"); // 回复ID
@@ -96,7 +97,7 @@
     }
 %>
 <div class="huati">
-    <form id="huifu" action="HuiFuServlet" method="get">
+    <form id="huifu" action="huifu" method="get">
         <%
             out.println("<input type='text' name='userid' readonly hidden value='" + request.getParameter("userid") + "'>"); // 用户ID
             out.println("<input type='text' name='id' readonly hidden value='" + request.getParameter("id") + "'>"); // 话题ID

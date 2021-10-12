@@ -11,9 +11,9 @@
     <title>新建话题</title>
 </head>
 <body>
-<form action="NewServlet" method="get">
+<form action="new" method="get">
     <%
-        out.println("<input name=\"id\" type=\"text\" hidden readonly value=\"" + request.getParameter("id") + "\">");
+        out.println("<input name='id' type='text' hidden readonly value='" + request.getParameter("id") + "'>");
     %>
     标题：<input type="text" name="title" required maxlength="255"><br>
     内容：<input type="text" name="content" required><br>

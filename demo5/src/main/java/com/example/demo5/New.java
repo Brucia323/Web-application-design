@@ -3,11 +3,16 @@ package com.example.demo5;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Timestamp;
 
 public class New {
     private int userId; // 用户ID
-    private String title;  // 标题
+    private String title; // 标题
     private String content; // 内容
 
     public void setUserId(int id) {
@@ -30,8 +35,11 @@ public class New {
             return false;
         }
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/HuaTi", "root", "20010323"); // 连接数据库
-            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO huati(title, userid, time) VALUES ('" + title + "', '" + userId + "', '" + new Timestamp(System.currentTimeMillis()) + "')"); // 新建话题
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/HuaTi", "root",
+                    "20010323"); // 连接数据库
+            PreparedStatement preparedStatement = connection
+                    .prepareStatement("INSERT INTO huati(title, userid, time) VALUES ('" + title + "', '" + userId
+                            + "', '" + new Timestamp(System.currentTimeMillis()) + "')"); // 新建话题
             int result = preparedStatement.executeUpdate(); // 执行插入语句
             if (result > 0) {
                 preparedStatement = connection.prepareStatement("SELECT max(id) FROM huati"); // 查询话题ID
@@ -50,7 +58,8 @@ public class New {
                         } catch (IOException e) {
                             // 写入文件出错
                             e.printStackTrace();
-                            preparedStatement = connection.prepareStatement("DELETE FROM huati WHERE id = '" + id + "'"); // 删除记录
+                            preparedStatement = connection
+                                    .prepareStatement("DELETE FROM huati WHERE id = '" + id + "'"); // 删除记录
                             preparedStatement.executeUpdate();
                             try {
                                 randomAccessFile.close();

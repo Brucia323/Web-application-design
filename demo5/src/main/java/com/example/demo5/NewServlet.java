@@ -1,13 +1,14 @@
 package com.example.demo5;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.PrintWriter;
 
-@WebServlet(name = "NewServlet", value = "/NewServlet")
+@WebServlet(name = "new", value = "/new")
 public class NewServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -25,12 +26,7 @@ public class NewServlet extends HttpServlet {
         } else {
             PrintWriter out = response.getWriter();
             out.println("提交失败！5s后返回...");
-            response.setHeader("refresh", "5;url=New.jsp?id=" + request.getParameter("id")); // 跳转回新增话题页
+            response.setHeader("refresh", "5;url=new.jsp?id=" + request.getParameter("id")); // 跳转回新增话题页
         }
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
-
     }
 }

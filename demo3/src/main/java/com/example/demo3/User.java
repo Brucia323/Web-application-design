@@ -1,27 +1,36 @@
 package com.example.demo3;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.*;
 
+/**
+ * 用户登录
+ *
+ * @ZZZCNY
+ */
 @WebServlet(name = "user", value = "/user")
 public class User extends HttpServlet {
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    @Override
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
-
         String name = request.getParameter("name");
         String password = request.getParameter("password");
         PrintWriter out = response.getWriter();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            System.out.println("驱动程序正常！");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/user", "root", "20010323");
-            System.out.println("数据库连接正常！");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo3", "root",
+                    "20010323");
             PreparedStatement preparedStatement;
             ResultSet resultSet = null;
             if (request.getParameter("button").equals("登录")) {
@@ -36,11 +45,12 @@ public class User extends HttpServlet {
                     out.println("用户登录失败！");
                 }
             } else {
-                preparedStatement = connection.prepareStatement("insert into users(name,password) values (" + name + "," + password + ")");
+                preparedStatement = connection
+                        .prepareStatement("insert into users(name, password) values (" + name + "," + password + ")");
                 preparedStatement.executeUpdate();
                 out.println("<html><body>");
                 out.println("注册成功！3s后返回登录界面");
-                response.setHeader("refresh", "3;url=index.jsp");
+                response.setHeader("refresh", "3;url=index.html");
             }
             out.println("</body></html>");
             assert resultSet != null;
@@ -48,19 +58,12 @@ public class User extends HttpServlet {
             preparedStatement.close();
             connection.close();
         } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
             if (request.getParameter("button").equals("注册")) {
                 out.println("<html><body>");
                 out.println("注册失败");
                 out.println("</body></html>");
             }
         }
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        doGet(req, resp);
-    }
-
-    public void destroy() {
     }
 }

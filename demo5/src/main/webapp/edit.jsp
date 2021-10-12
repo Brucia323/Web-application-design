@@ -1,7 +1,8 @@
 <%@ page import="com.mysql.cj.jdbc.Driver" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="java.io.RandomAccessFile" %>
-<%@ page import="java.nio.charset.StandardCharsets" %><%--
+<%@ page import="java.nio.charset.StandardCharsets" %>
+<%--
   Created by IntelliJ IDEA.
   User: ZZZCNY
   Date: 2021/10/4
@@ -16,8 +17,8 @@
 <body>
 <form method="get" action="EditServlet">
     <%
-        out.println("<input name=\"userid\" type=\"text\" hidden readonly value=\"" + request.getParameter("userid") + "\">");
-        out.println("<input name=\"id\" type=\"text\" hidden readonly value=\"" + request.getParameter("id") + "\">");
+        out.println("<input name='userid' type='text' hidden readonly value='" + request.getParameter("userid") + "'>");
+        out.println("<input name='id' type='text' hidden readonly value='" + request.getParameter("id") + "'>");
     %>
     <%
         try {
@@ -30,7 +31,7 @@
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT title FROM huati WHERE id='" + request.getParameter("id") + "'");
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                out.println("标题：<input type='text' name='title' value='" + resultSet.getString(1) + "' required maxlength=\"255\"><br>");
+                out.println("标题：<input type='text' name='title' value='" + resultSet.getString(1) + "' required maxlength='255'><br>");
             }
             resultSet.close();
             preparedStatement.close();
