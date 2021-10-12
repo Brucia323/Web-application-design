@@ -24,7 +24,7 @@ public class DeleteServlet extends HttpServlet {
         }
         Connection connection = null;
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/HuaTi", "root", "20010323");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo5", "root", "20010323");
             PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM huati WHERE id = '" + id + "'");
             preparedStatement.executeUpdate();
             preparedStatement.close();

@@ -24,7 +24,7 @@ public class HuiFuServlet extends HttpServlet {
             e.printStackTrace();
         }
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/HuaTi", "root", "20010323"); // 连接数据库
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo5", "root", "20010323"); // 连接数据库
             if (huiFuId == null && !request.getParameter("huifuhuati").isEmpty()) {
                 // 回复话题
                 content = request.getParameter("huifuhuati"); // 内容

@@ -23,7 +23,7 @@
             e.printStackTrace();
         }
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/HuaTi", "root", "20010323"); // 连接数据库
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo5", "root", "20010323"); // 连接数据库
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT name, manager FROM user WHERE id = '" + request.getParameter("id") + "'"); // 加载用户名和身份信息
             ResultSet resultSet = preparedStatement.executeQuery(); // 执行查询语句
             if (resultSet.next()) {
@@ -49,7 +49,7 @@
             e.printStackTrace();
         }
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/HuaTi", "root", "20010323"); // 连接数据库
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo5", "root", "20010323"); // 连接数据库
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT huati.id, title, zan, huifu, top, jing, userid, time, name FROM huati,user WHERE huati.userid = user.id ORDER BY top DESC, huati.id DESC"); // 加载话题并以倒序排列
             ResultSet resultSet = preparedStatement.executeQuery(); // 执行查询语句
             while (resultSet.next()) {

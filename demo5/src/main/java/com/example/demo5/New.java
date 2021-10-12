@@ -30,7 +30,7 @@ public class New {
             return false;
         }
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/HuaTi", "root", "20010323"); // 连接数据库
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo5", "root", "20010323"); // 连接数据库
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO huati(title, userid, time) VALUES ('" + title + "', '" + userId + "', '" + new Timestamp(System.currentTimeMillis()) + "')"); // 新建话题
             int result = preparedStatement.executeUpdate(); // 执行插入语句
             if (result > 0) {

@@ -19,7 +19,7 @@ public class JingServlet extends HttpServlet {
             e.printStackTrace();
         }
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/HuaTi", "root", "20010323");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo5", "root", "20010323");
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT jing FROM huati WHERE id = '" + id + "'");
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {

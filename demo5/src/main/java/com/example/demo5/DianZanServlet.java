@@ -19,7 +19,7 @@ public class DianZanServlet extends HttpServlet {
             e.printStackTrace();
         }
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/HuaTi", "root", "20010323"); // 连接数据库
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo5", "root", "20010323"); // 连接数据库
             if (huiFuId == null) {
                 // 主页点赞话题
                 dianZanHuaTi(id, userid, connection);

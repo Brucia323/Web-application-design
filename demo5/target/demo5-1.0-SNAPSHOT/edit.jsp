@@ -26,7 +26,7 @@
             e.printStackTrace();
         }
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/HuaTi", "root", "20010323");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo5", "root", "20010323");
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT title FROM huati WHERE id='" + request.getParameter("id") + "'");
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {

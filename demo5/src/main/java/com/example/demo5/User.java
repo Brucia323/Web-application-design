@@ -36,7 +36,7 @@ public class User {
             return false;
         }
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/HuaTi", "root", "20010323"); // 连接数据库
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo5", "root", "20010323"); // 连接数据库
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM user WHERE name = '" + name + "' AND password = '" + password + "'"); // 查询对应用户名和密码
             ResultSet resultSet = preparedStatement.executeQuery(); // 执行查询语句并返回结果集
             if (resultSet.next()) {
@@ -68,7 +68,7 @@ public class User {
             return false;
         }
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/HuaTi", "root", "20010323"); // 连接数据库
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo5", "root", "20010323"); // 连接数据库
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO user (name, password, manager) VALUES ('" + name + "', '" + password + "', '" + isManager + "')"); // 插入用户记录
             int result = preparedStatement.executeUpdate();
             preparedStatement.close();

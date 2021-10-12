@@ -26,7 +26,7 @@ public class EditServlet extends HttpServlet {
             e.printStackTrace();
         }
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/HuaTi", "root", "20010323");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo5", "root", "20010323");
             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE huati SET title = '" + title + "' WHERE id = '" + id + "'");
             preparedStatement.executeUpdate();
             preparedStatement.close();

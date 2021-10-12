@@ -10,27 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a0b231d-9606-4b82-a4ed-c2d2fc5980ec" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/../demo/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo1/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo1/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo1/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo1/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo2/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo2/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo2/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo2/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo3/.idea/artifacts/demo3_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo3/.idea/artifacts/demo3_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo3/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo3/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_7_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo3/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_7_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo3/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_7_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo3/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_7_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo3/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo3/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo3/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo3/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo3/demo3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo3/demo3.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/demo4_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/demo4_war.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/artifacts/demo4_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/demo4_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9024efc0-4d3f-41ed-b46f-b1a07a63e2d1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9024efc0-4d3f-41ed-b46f-b1a07a63e2d1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo4.iml" beforeDir="false" afterPath="$PROJECT_DIR$/demo4.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo4/ShangPin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo4/ShangPin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/demo4-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/demo4-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,12 +64,12 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.26.jar" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="项目" />
+    <property name="project.structure.last.edited" value="工件" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
@@ -189,6 +176,7 @@
       <workItem from="1632734926622" duration="37000" />
       <workItem from="1632826600355" duration="75000" />
       <workItem from="1633847436240" duration="34000" />
+      <workItem from="1634039688806" duration="257000" />
     </task>
     <servers />
   </component>

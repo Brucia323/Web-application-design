@@ -21,7 +21,7 @@ public class ShangPin extends HttpServlet {
                 try {
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     try {
-                        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ShangPinGuanLi", "root", "20010323");
+                        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo4", "root", "20010323");
                         PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO ShangPin(name,price) VALUES ('" + name + "','" + price + "')");
                         int result = preparedStatement.executeUpdate();
                         PrintWriter out = response.getWriter();
@@ -44,7 +44,7 @@ public class ShangPin extends HttpServlet {
                 try {
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     try {
-                        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ShangPinGuanLi", "root", "20010323");
+                        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo4", "root", "20010323");
                         PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM ShangPin WHERE id ='" + request.getParameter("id") + "'");
                         ResultSet resultSet = preparedStatement.executeQuery();
                         if (resultSet.next()) {
@@ -69,7 +69,7 @@ public class ShangPin extends HttpServlet {
                 try {
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     try {
-                        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ShangPinGuanLi", "root", "20010323");
+                        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo4", "root", "20010323");
                         PreparedStatement preparedStatement = connection.prepareStatement("UPDATE ShangPin SET name ='" + request.getParameter("name") + "',price='" + request.getParameter("price") + "' WHERE id ='" + request.getParameter("id") + "'");
                         int result = preparedStatement.executeUpdate();
                         PrintWriter out = response.getWriter();
@@ -92,7 +92,7 @@ public class ShangPin extends HttpServlet {
                 try {
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     try {
-                        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ShangPinGuanLi", "root", "20010323");
+                        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo4", "root", "20010323");
                         PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM ShangPin WHERE id ='" + request.getParameter("id") + "'");
                         int result = preparedStatement.executeUpdate();
                         PrintWriter out = response.getWriter();
@@ -116,7 +116,7 @@ public class ShangPin extends HttpServlet {
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 try {
-                    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ShangPinGuanLi", "root", "20010323");
+                    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo4", "root", "20010323");
                     PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM ShangPin");
                     ResultSet resultSet = preparedStatement.executeQuery();
                     PrintWriter out = response.getWriter();
