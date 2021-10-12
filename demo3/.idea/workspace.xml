@@ -10,14 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf529482-cd09-400c-82ca-904e528fe1d7" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/../demo/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo1/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo1/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo1/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo1/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo2/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo2/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../demo2/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../demo2/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/cd1ba55a-d978-4198-a73e-607e10fa6357.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/cd1ba55a-d978-4198-a73e-607e10fa6357.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo3/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo3/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/demo3-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/demo3-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,9 +44,8 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/demo3/User.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/webapp/index.jsp" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/demo3/User.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -199,6 +196,7 @@
       <workItem from="1632378362991" duration="2000" />
       <workItem from="1632734831593" duration="84000" />
       <workItem from="1633847369459" duration="65000" />
+      <workItem from="1634039264169" duration="373000" />
     </task>
     <servers />
   </component>

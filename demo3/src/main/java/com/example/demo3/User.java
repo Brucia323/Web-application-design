@@ -20,7 +20,7 @@ public class User extends HttpServlet {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             System.out.println("驱动程序正常！");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/user", "root", "20010323");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo3", "root", "20010323");
             System.out.println("数据库连接正常！");
             PreparedStatement preparedStatement;
             ResultSet resultSet = null;
@@ -36,7 +36,7 @@ public class User extends HttpServlet {
                     out.println("用户登录失败！");
                 }
             } else {
-                preparedStatement = connection.prepareStatement("insert into users(name,password) values (" + name + "," + password + ")");
+                preparedStatement = connection.prepareStatement("insert into users(name,password) values ('" + name + "','" + password + "')");
                 preparedStatement.executeUpdate();
                 out.println("<html><body>");
                 out.println("注册成功！3s后返回登录界面");
