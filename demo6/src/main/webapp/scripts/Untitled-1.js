@@ -1,4 +1,5 @@
 var httpRequest = null;
+
 function createXHR() {
     if (window.XMLHttpRequest) {
         httpRequest = new XMLHttpRequest();
@@ -17,6 +18,7 @@ function createXHR() {
         alert("fail to create httpRequest");
     }
 }
+
 function sendRequest(url, parameter, method, handler) {
     createXHR();
     if (!httpRequest)
@@ -32,21 +34,24 @@ function sendRequest(url, parameter, method, handler) {
         httpRequest.send(parameter);
     }
 }
+
 function formCheck() {
-    var url = "formcheck";
-    var userid = document.getElementById("userid").value;
-    var parameter = "userid=" + userid;
+    var url = "FormCheck";
+    var username = document.getElementById("username").value;
+    var parameter = "username=" + username;
     sendRequest(url, parameter, "GET", showresult);
 }
+
 function login() {
-    var url = "login";
-    var userid = document.getElementById("userid").value;
+    var url = "LoginServlet";
+    var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
-    var parameter = "userid=" + userid + "&password=" + password;
+    var parameter = "username=" + username + "&password=" + password;
     sendRequest(url, parameter, "POST", showresult);
 }
+
 function showresult() {
-    if (httpRequest.readystate == 4) {
+    if (httpRequest.readyState == 4) {
         if (httpRequest.status == 200) {
             var info = httpRequest.responseText;
             document.getElementById("result").innerHTML = info;
