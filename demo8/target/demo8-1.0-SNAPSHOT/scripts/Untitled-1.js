@@ -1,4 +1,6 @@
 var httpRequest = null;
+var trSrc;
+
 function createXHR() {
     if (window.XMLHttpRequest) {
         httpRequest = new XMLHttpRequest();
@@ -32,13 +34,14 @@ function sendRequest(url, parameter, method, handler) {
         httpRequest.send(parameter);
     }
 }
-var trSrc;
+
 function search() {
     var inputWord = document.getElementById('inputWord').value;
     var url = "searchsuggest";
     var params = 'inputWord=' + inputWord;
     sendRequest(url, params, 'POST', display);
 }
+
 function display() {
     if (httpRequest.readyState == 4) {
         if (httpRequest.status == 200) {
@@ -58,7 +61,6 @@ function clearDivData() {
         tbody.removeChild(trs[i]);
     }
 }
-
 
 function changeDivData(xmlDoc) {
     var words = xmlDoc.getElementsByTagName('word');
