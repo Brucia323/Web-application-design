@@ -7,14 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script type="module" src="https://unpkg.com/@microsoft/fast-components"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="scripts/shengshiLiandong.js"></script>
 </head>
 
-<body>
-<fast-combobox>
-    <fast-option id="shengfen">福建</fast-option>
-</fast-combobox>
-<fast-combobox id="chengshi"></fast-combobox>
-<fast-combobox id="quxian"></fast-combobox>
+<body style="background-color: #18191a;">
+    <fast-select id="shengfen">
+        <fast-option>福建省</fast-option>
+    </fast-select>
+    <fast-select id="chengshi"></fast-select>
+    <fast-select id="quxian"></fast-select>
 </body>
 
 </html>
