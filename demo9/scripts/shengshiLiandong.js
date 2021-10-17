@@ -24,19 +24,20 @@ $(document).ready(function () {
         })
     })
 });
-$("#chengshi").change(function () {
-    alert("hello");
-    $.getJSON("scripts/quxianXinxi.json", function (data) {
-        var $quxian = $("#quxian");
-        $("#quxian fast-option").empty();
-        $.each(data, function (index, quxianXinxi) {
-            if (index == $("#chengshi").val()) {
-                var quxianXinxilist = quxianXinxi.split(',' && '，');
-                for (let index = 0; index < quxianXinxilist.length; index++) {
-                    $quxian.append('<fast-option value"' + quxianXinxilist[index] + '">' + quxianXinxilist[index] + '</fast-option>');
+$(document).ready(function () {
+    $("#chengshi").change(function () {
+        $.getJSON("scripts/quxianXinxi.json", function (data) {
+            var $quxian = $("#quxian");
+            $("#quxian").empty();
+            $.each(data, function (index, quxianXinxi) {
+                if (index == $("#chengshi").val()) {
+                    var quxianXinxilist = quxianXinxi.split(',' && '，');
+                    for (let index = 0; index < quxianXinxilist.length; index++) {
+                        $quxian.append('<fast-option value"' + quxianXinxilist[index] + '">' + quxianXinxilist[index] + '</fast-option>');
 
+                    }
                 }
-            }
-        })
-    })
-})
+            });
+        });
+    });
+});
