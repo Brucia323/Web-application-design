@@ -1,0 +1,10 @@
+header {
+    width: 100%;
+    display: inline-block;
+    position: sticky;
+    top: 0px;
+    backdrop-filter: saturate(180%) blur(20px);
+}
+header div{
+    float: right;
+}

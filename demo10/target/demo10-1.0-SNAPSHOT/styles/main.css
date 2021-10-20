@@ -1,0 +1,8 @@
+main>div {
+    border-radius: 18px;
+    position: relative;
+    white-space: normal;
+    box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);
+    margin: 20px 30px;
+    padding: 30px;
+}

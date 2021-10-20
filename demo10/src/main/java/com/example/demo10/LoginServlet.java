@@ -14,13 +14,14 @@ import java.sql.SQLException;
 public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request,response);
+        doPost(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
+        PrintWriter out = response.getWriter();
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         User user = new User(username, password);
@@ -29,10 +30,8 @@ public class LoginServlet extends HttpServlet {
                 HttpSession httpSession = request.getSession();
                 httpSession.setAttribute("id", user.getId());
                 httpSession.setAttribute("administrator", user.getAdministrator());
-                response.setHeader("refresh","url=index.html");
-            }else {
-                PrintWriter out=response.getWriter();
-                out.println("用户名或密码不正确");
+            } else {
+                out.print("用户名或密码不正确");
             }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
