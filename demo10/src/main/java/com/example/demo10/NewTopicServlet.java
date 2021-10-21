@@ -21,7 +21,7 @@ public class NewTopicServlet extends HttpServlet {
         int userid = (int) httpSession.getAttribute("id");
         String title = request.getParameter("title");
         String content = request.getParameter("content");
-        Topics topics=new Topics(userid,title,content);
+        Topics topics = new Topics(userid, title, content);
         try {
             topics.newTopic();
             out.print(true);
