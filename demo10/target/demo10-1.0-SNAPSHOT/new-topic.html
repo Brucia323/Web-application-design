@@ -6,26 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="light dark">
-    <title>首页</title>
-    <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/main.css">
+    <title>新建话题</title>
     <script type="module" src="https://unpkg.com/@microsoft/fast-components"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="scripts/new-topic.js"></script>
     <script src="scripts/getStatus.js"></script>
-    <script src="scripts/loadingTopics.js"></script>
-    <script src="scripts/likes.js"></script>
 </head>
 
 <body>
-    <header>
-        <div id="new-topic"></div>
-        <div id="account">
-            <fast-anchor href="login-registration.html">登录/注册</fast-anchor>
-        </div>
-    </header>
-    <main>
-    </main>
+    <div>
+        <fast-text-field id="title">标题</fast-text-field>
+    </div>
+    <div>
+        <fast-text-area id="content">内容</fast-text-area>
+    </div>
+    <div>
+        <fast-button id="button">提交</fast-button>
+    </div>
 </body>
 
 </html>

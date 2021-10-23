@@ -4,6 +4,11 @@ main>div {
     white-space: normal;
     margin: 20px 30px;
     padding: 30px;
+    clear: both;
+}
+
+main div {
+    margin: 10px;
 }
 
 @media (prefers-color-scheme:dark) {
@@ -16,4 +21,24 @@ main>div {
     main>div {
         box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);
     }
+}
+
+.likes {
+    float: left;
+}
+
+fast-button {
+    margin: 5px;
+}
+
+.username {
+    font-size: small;
+}
+
+.title {
+    font-size: large;
+}
+
+.time {
+    font-size: small;
 }

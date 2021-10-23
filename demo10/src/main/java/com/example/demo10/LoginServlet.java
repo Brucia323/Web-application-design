@@ -1,6 +1,5 @@
 package com.example.demo10;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,12 +12,12 @@ import java.sql.SQLException;
 @WebServlet(name = "LoginServlet", value = "/LoginServlet")
 public class LoginServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         doPost(request, response);
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
@@ -29,13 +28,12 @@ public class LoginServlet extends HttpServlet {
             if (user.login()) {
                 HttpSession httpSession = request.getSession();
                 httpSession.setAttribute("id", user.getId());
+                httpSession.setAttribute("username", user.getUsername());
                 httpSession.setAttribute("administrator", user.getAdministrator());
             } else {
                 out.print("用户名或密码不正确");
             }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+        } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
     }

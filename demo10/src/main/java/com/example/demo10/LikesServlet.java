@@ -8,16 +8,18 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
-@WebServlet(name = "ViewTopicServlet", value = "/ViewTopicServlet")
-public class ViewTopicServlet extends HttpServlet {
+@WebServlet(name = "LikesServlet", value = "/LikesServlet")
+public class LikesServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
+        int userid = Integer.parseInt(request.getParameter("userid"));
+        int topicid = Integer.parseInt(request.getParameter("topicid"));
         Topics topics = new Topics();
         try {
-            out.print(topics.viewTopic());
+            out.print(topics.likes(userid, topicid));
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }

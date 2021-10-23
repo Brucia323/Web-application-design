@@ -6,14 +6,23 @@ import java.sql.*;
  * 处理用户的登录和注册
  *
  * @author ZZZCNY
- * @version 1.0
+ * @version 1.2
  * @since 2021/10/20
  */
 public class User {
-    private final String username;
+    private String username;
     private String password;
     private boolean administrator;
     private int id;
+
+    public User() {
+    }
+
+    public User(String username, boolean administrator, int id) {
+        this.username = username;
+        this.administrator = administrator;
+        this.id = id;
+    }
 
     public User(String username, String password) {
         this.username = username;
@@ -24,6 +33,31 @@ public class User {
         this.username = username;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    /**
+     * 获取用户名
+     *
+     * @param userId 用户id
+     * @return 用户名
+     * @throws ClassNotFoundException 驱动程序加载失败
+     * @throws SQLException           数据库异常
+     * @author ZZZCNY
+     * @since 1.2
+     */
+    public String getUsername(int userId) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection connection = DriverManager.getConnection(MySQL.url, MySQL.user, MySQL.password);
+        PreparedStatement preparedStatement = connection.prepareStatement("SELECT username FROM user WHERE id = '" + userId + "'");
+        ResultSet resultSet = preparedStatement.executeQuery();
+        if (resultSet.next()) {
+            return resultSet.getString("username");
+        }
+        return null;
+    }
+
     public int getId() {
         return id;
     }
@@ -31,7 +65,7 @@ public class User {
     /**
      * 登录
      *
-     * @return boolean 登录成功返回true, 登录失败返回false
+     * @return 登录成功返回true, 登录失败返回false
      * @throws ClassNotFoundException 驱动程序加载失败
      * @throws SQLException           数据库异常
      * @author ZZZCNY
@@ -43,7 +77,7 @@ public class User {
         PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM user WHERE username = '" + username + "' AND password = '" + password + "'");
         ResultSet resultSet = preparedStatement.executeQuery();
         if (resultSet.next()) {
-            administrator = Boolean.parseBoolean(resultSet.getString("administrator"));
+            administrator = resultSet.getString("administrator").equals("1");
             id = Integer.parseInt(resultSet.getString("id"));
             resultSet.close();
             preparedStatement.close();
@@ -60,7 +94,7 @@ public class User {
     /**
      * 注册
      *
-     * @return boolean 注册成功返回ture, 注册失败返回false
+     * @return 注册成功返回ture, 注册失败返回false
      * @throws ClassNotFoundException 驱动程序加载失败
      * @throws SQLException           数据库异常
      * @author ZZZCNY
@@ -83,7 +117,7 @@ public class User {
     /**
      * 检查用户名是否重复
      *
-     * @return boolean 有重复返回true, 没有重复返回false
+     * @return 有重复返回true, 没有重复返回false
      * @throws ClassNotFoundException 驱动程序加载失败
      * @throws SQLException           数据库异常
      * @author ZZZCNY

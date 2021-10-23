@@ -3,15 +3,15 @@ package com.example.demo10;
 import java.sql.Time;
 
 /**
- * 用于序列化和反序列化话题对象
+ * 发送话题
  *
  * @author ZZZCNY
- * @version 1.1
- * @since 2021/10/20
+ * @version 1.0
+ * @since 2021/10/23
  */
-public class Topic {
+public class SendTopic {
     private int topicid;
-    private int userid;
+    private String username;
     private String title;
     private String content;
     private Time time;
@@ -20,9 +20,9 @@ public class Topic {
     private boolean sticky;
     private boolean essence;
 
-    public Topic(int topicid, int userid, String title, String content, Time time, int likes, int reply, boolean sticky, boolean essence) {
+    public SendTopic(int topicid, String username, String title, String content, Time time, int likes, int reply, boolean sticky, boolean essence) {
         this.topicid = topicid;
-        this.userid = userid;
+        this.username = username;
         this.title = title;
         this.content = content;
         this.time = time;
@@ -30,11 +30,6 @@ public class Topic {
         this.reply = reply;
         this.sticky = sticky;
         this.essence = essence;
-    }
-
-    public Topic(String title, String content) {
-        this.title = title;
-        this.content = content;
     }
 
     public int getTopicid() {
@@ -45,12 +40,28 @@ public class Topic {
         this.topicid = topicid;
     }
 
-    public int getUserid() {
-        return userid;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserid(int userid) {
-        this.userid = userid;
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public Time getTime() {
@@ -91,21 +102,5 @@ public class Topic {
 
     public void setEssence(boolean essence) {
         this.essence = essence;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
     }
 }
