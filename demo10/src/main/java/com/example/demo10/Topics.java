@@ -126,10 +126,11 @@ public class Topics {
 
     /**
      * 点赞
-     * @param userid 用户id
+     *
+     * @param userid  用户id
      * @param topicid 话题id
      * @throws ClassNotFoundException 驱动程序加载失败
-     * @throws SQLException 数据库异常
+     * @throws SQLException           数据库异常
      * @author ZZZcNY
      * @since 1.2
      */
@@ -141,16 +142,64 @@ public class Topics {
         if (resultSet.next()) {
             preparedStatement.executeUpdate("DELETE FROM likes WHERE topicid = '" + topicid + "' AND userid = '" + userid + "'");
             preparedStatement.executeUpdate("UPDATE topics SET likes = likes - 1 WHERE id = '" + topicid + "'");
-        }else {
-            preparedStatement.executeUpdate("INSERT INTO likes (userid, topicid) VALUES ('"+userid+"', '"+topicid+"')");
+        } else {
+            preparedStatement.executeUpdate("INSERT INTO likes (userid, topicid) VALUES ('" + userid + "', '" + topicid + "')");
             preparedStatement.executeUpdate("UPDATE topics SET likes = likes + 1 WHERE id = '" + topicid + "'");
         }
-        resultSet=preparedStatement.executeQuery("SELECT likes FROM topics WHERE id = '"+topicid+"'");
+        resultSet = preparedStatement.executeQuery("SELECT likes FROM topics WHERE id = '" + topicid + "'");
         resultSet.next();
-        String likes=resultSet.getString(1);
+        String likes = resultSet.getString(1);
         resultSet.close();
         preparedStatement.close();
         connection.close();
         return likes;
+    }
+
+    public String loadingCommentPageTopics(int topicid) throws ClassNotFoundException, SQLException, IOException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection connection = DriverManager.getConnection(MySQL.url, MySQL.user, MySQL.password);
+        PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM topics WHERE id = '" + topicid + "'");
+        ResultSet resultSet = preparedStatement.executeQuery();
+        if (resultSet.next()) {
+            topicid = resultSet.getInt("id");
+            userid = resultSet.getInt("userid");
+            User user = new User();
+            String username = user.getUsername(userid);
+            String time = resultSet.getString("time");
+            int likes = resultSet.getInt("likes");
+            int reply = resultSet.getInt("reply");
+            boolean sticky = resultSet.getBoolean("sticky");
+            boolean essence = resultSet.getBoolean("essence");
+            RandomAccessFile randomAccessFile = new RandomAccessFile("topics" + topicid + ".json", "r");
+            String json = new String(randomAccessFile.readLine().getBytes("ISO_8859_1"), "GBK");
+            randomAccessFile.close();
+            JsonReader jsonReader = new JsonReader(new StringReader(json));
+            String name = "";
+            while (jsonReader.hasNext()) {
+                JsonToken nextToken = jsonReader.peek();
+                if (JsonToken.BEGIN_OBJECT.equals(nextToken)) {
+                    jsonReader.beginObject();
+                } else if (JsonToken.NAME.equals(nextToken)) {
+                    name = jsonReader.nextName();
+                } else if (JsonToken.STRING.equals(nextToken)) {
+                    if (name.equals("title")) {
+                        title = jsonReader.nextString();
+                        name = "";
+                    } else if (name.equals("content")) {
+                        content = jsonReader.nextString();
+                        name = "";
+                    }
+                } else if (JsonToken.END_OBJECT.equals(nextToken)) {
+                    jsonReader.endObject();
+                }
+            }
+            SendTopic topic = new SendTopic(topicid, username, title, content, time, likes, reply, sticky, essence);
+            resultSet.close();
+            preparedStatement.close();
+            connection.close();
+            Gson gson = new Gson();
+            return gson.toJson(topic);
+        }
+        return null;
     }
 }

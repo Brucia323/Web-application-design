@@ -11,6 +11,10 @@ main div {
     margin: 10px;
 }
 
+/* .comments {
+    display: none;
+} */
+
 @media (prefers-color-scheme:dark) {
     main>div {
         background-color: rgb(28, 28, 30);
