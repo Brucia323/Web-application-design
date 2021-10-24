@@ -3,12 +3,13 @@ header {
     display: inline-block;
     position: sticky;
     top: 0px;
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
     backdrop-filter: saturate(180%) blur(20px);
     z-index: 99;
 }
 
 header div {
-    margin: 10px;
+    margin: 10px 10px 0px;
 }
 
 #account {

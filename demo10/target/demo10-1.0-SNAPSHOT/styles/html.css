@@ -1,0 +1,11 @@
+@media (prefers-color-scheme:dark) {
+    html {
+        background-color: black;
+    }
+}
+
+@media (prefers-color-scheme:light) {
+    html {
+        background-color: rgb(242, 242, 247);
+    }
+}

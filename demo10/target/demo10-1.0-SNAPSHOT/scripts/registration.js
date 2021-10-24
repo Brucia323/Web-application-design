@@ -19,7 +19,7 @@ $(document).ready(function () {
         var username = $("#registered-user-name").val();
         if (username != "") {
             $.get("RegisterServlet", { username }, function (result) {
-                $("#check-username").append("<div>" + result + "</div>");
+                alert(result);
             });
         }
     });

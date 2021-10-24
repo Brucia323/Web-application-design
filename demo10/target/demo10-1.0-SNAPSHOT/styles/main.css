@@ -13,13 +13,13 @@ main div {
 
 @media (prefers-color-scheme:dark) {
     main>div {
-        box-shadow: 2px 4px 12px rgba(255, 255, 255, 0.08);
+        background-color: rgb(28, 28, 30);
     }
 }
 
 @media (prefers-color-scheme:light) {
     main>div {
-        box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);
+        background-color: white;
     }
 }
 

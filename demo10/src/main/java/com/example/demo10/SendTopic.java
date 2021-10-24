@@ -1,7 +1,5 @@
 package com.example.demo10;
 
-import java.sql.Time;
-
 /**
  * 发送话题
  *
@@ -14,13 +12,13 @@ public class SendTopic {
     private String username;
     private String title;
     private String content;
-    private Time time;
+    private String time;
     private int likes;
     private int reply;
     private boolean sticky;
     private boolean essence;
 
-    public SendTopic(int topicid, String username, String title, String content, Time time, int likes, int reply, boolean sticky, boolean essence) {
+    public SendTopic(int topicid, String username, String title, String content, String time, int likes, int reply, boolean sticky, boolean essence) {
         this.topicid = topicid;
         this.username = username;
         this.title = title;
@@ -64,11 +62,11 @@ public class SendTopic {
         this.content = content;
     }
 
-    public Time getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Time time) {
+    public void setTime(String time) {
         this.time = time;
     }
 

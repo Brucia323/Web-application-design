@@ -23,7 +23,6 @@ public class NewTopicServlet extends HttpServlet {
         Topics topics = new Topics(userid, title, content);
         try {
             topics.newTopic();
-            out.print(true);
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }

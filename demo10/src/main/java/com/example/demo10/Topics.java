@@ -86,7 +86,7 @@ public class Topics {
             userid = resultSet.getInt("userid");
             User user = new User();
             String username = user.getUsername(userid);
-            Time time = resultSet.getTime("time");
+            String time = resultSet.getString("time");
             int likes = resultSet.getInt("likes");
             int reply = resultSet.getInt("reply");
             boolean sticky = resultSet.getBoolean("sticky");
