@@ -46,3 +46,9 @@ fast-button {
 .time {
     font-size: small;
 }
+
+.releasediv,
+.rcomments {
+    display: flex;
+    align-items: flex-end;
+}

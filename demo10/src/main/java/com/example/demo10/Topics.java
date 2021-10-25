@@ -131,16 +131,16 @@ public class Topics {
      * @param topicid 话题id
      * @throws ClassNotFoundException 驱动程序加载失败
      * @throws SQLException           数据库异常
-     * @author ZZZcNY
+     * @author ZZZCNY
      * @since 1.2
      */
     public String likes(int userid, int topicid) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = DriverManager.getConnection(MySQL.url, MySQL.user, MySQL.password);
-        PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM likes WHERE userid = '" + userid + "' AND topicid = '" + topicid + "'");
+        PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM likes WHERE userid = '" + userid + "' AND topicid = '" + topicid + "' AND replyid = 0");
         ResultSet resultSet = preparedStatement.executeQuery();
         if (resultSet.next()) {
-            preparedStatement.executeUpdate("DELETE FROM likes WHERE topicid = '" + topicid + "' AND userid = '" + userid + "'");
+            preparedStatement.executeUpdate("DELETE FROM likes WHERE topicid = '" + topicid + "' AND userid = '" + userid + "' AND replyid = 0");
             preparedStatement.executeUpdate("UPDATE topics SET likes = likes - 1 WHERE id = '" + topicid + "'");
         } else {
             preparedStatement.executeUpdate("INSERT INTO likes (userid, topicid) VALUES ('" + userid + "', '" + topicid + "')");
@@ -155,6 +155,17 @@ public class Topics {
         return likes;
     }
 
+    /**
+     * 加载评论页话题
+     *
+     * @param topicid 话题ID
+     * @return 话题
+     * @throws ClassNotFoundException 驱动程序加载失败
+     * @throws SQLException           数据库异常
+     * @throws IOException            读写一场
+     * @author ZZZCNY
+     * @deprecated
+     */
     public String loadingCommentPageTopics(int topicid) throws ClassNotFoundException, SQLException, IOException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = DriverManager.getConnection(MySQL.url, MySQL.user, MySQL.password);

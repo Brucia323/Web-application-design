@@ -1,7 +1,15 @@
 package com.example.demo10;
 
+/**
+ * 发送评论
+ *
+ * @author ZZZCNY
+ * @version 1.0
+ * @since 2021/10/24
+ */
 public class SendReply {
     private int replyid;
+    private int topicid;
     private String username;
     private String reply;
     private int replyNum;
@@ -9,15 +17,82 @@ public class SendReply {
     private boolean sticky;
     private String time;
     private String replyName;
+    private int topicReplyNum;
+    private int lastReplyNum;
 
-    public SendReply(int replyid, String username, String reply, int replyNum, int likes, boolean sticky, String time, String replyName) {
+    public SendReply(int replyid, int topicid, String username, String reply, int replyNum, int likes, boolean sticky, String time, String replyName, int topicReplyNum, int lastReplyNum) {
         this.replyid = replyid;
+        this.topicid = topicid;
         this.username = username;
         this.reply = reply;
+        this.replyNum = replyNum;
         this.likes = likes;
         this.sticky = sticky;
         this.time = time;
         this.replyName = replyName;
+        this.topicReplyNum = topicReplyNum;
+        this.lastReplyNum = lastReplyNum;
+    }
+
+    public SendReply(int replyid, int topicid, String username, String reply, int replyNum, int likes, boolean sticky, String time, String replyName, int topicReplyNum) {
+        this.replyid = replyid;
+        this.topicid = topicid;
+        this.username = username;
+        this.reply = reply;
+        this.replyNum = replyNum;
+        this.likes = likes;
+        this.sticky = sticky;
+        this.time = time;
+        this.replyName = replyName;
+        this.topicReplyNum = topicReplyNum;
+    }
+
+    public SendReply(int replyid, int topicid, String username, String reply, int replyNum, int likes, boolean sticky, String time, String replyName) {
+        this.replyid = replyid;
+        this.topicid = topicid;
+        this.username = username;
+        this.reply = reply;
+        this.replyNum = replyNum;
+        this.likes = likes;
+        this.sticky = sticky;
+        this.time = time;
+        this.replyName = replyName;
+    }
+
+    public int getLastReplyNum() {
+        return lastReplyNum;
+    }
+
+    public void setLastReplyNum(int lastReplyNum) {
+        this.lastReplyNum = lastReplyNum;
+    }
+
+    public int getTopicReplyNum() {
+        return topicReplyNum;
+    }
+
+    public void setTopicReplyNum(int topicReplyNum) {
+        this.topicReplyNum = topicReplyNum;
+    }
+
+    public int getTopicid() {
+        return topicid;
+    }
+
+    public void setTopicid(int topicid) {
+        this.topicid = topicid;
+    }
+
+    public int getReplyNum() {
+        return replyNum;
+    }
+
+    public void setReplyNum(int replyNum) {
+        this.replyNum = replyNum;
+    }
+
+    public boolean isSticky() {
+        return sticky;
     }
 
     public int getReplyid() {
