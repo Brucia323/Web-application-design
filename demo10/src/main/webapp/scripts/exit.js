@@ -1,3 +1,7 @@
+/**
+ * 退出
+ * @ZZZCNY
+ */
 $(document).ready(function () {
     $("#account").hover(function () {
         $("#exit").empty();

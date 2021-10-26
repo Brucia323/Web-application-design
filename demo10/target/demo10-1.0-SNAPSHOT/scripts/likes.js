@@ -1,3 +1,8 @@
+/**
+ * 点赞话题
+ * @param {*} topicid
+ * @ZZZCNY
+ */
 function setTopicID(topicid) {
     $("#" + topicid + " .likes").click(function () {
         var userid = getID();
@@ -7,6 +12,13 @@ function setTopicID(topicid) {
         });
     });
 }
+
+/**
+ * 点赞评论
+ * @param {*} topicid
+ * @param {*} replyid
+ * @ZZZCNY
+ */
 function likes(topicid, replyid) {
     var userid = getID();
     $.get("LikesServlet", { topicid, replyid, userid }, function (data) {

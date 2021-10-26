@@ -1,3 +1,7 @@
+/**
+ * 新建话题
+ * @ZZZCNY
+ */
 $(document).ready(function () {
     $("#button").click(function () {
         var title = $("#title").val();

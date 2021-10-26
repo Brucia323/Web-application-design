@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="light dark">
     <title>新建话题</title>
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/html.css">
+    <link rel="stylesheet" href="styles/main.css">
     <script type="module" src="https://unpkg.com/@microsoft/fast-components"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
@@ -14,15 +17,22 @@
 </head>
 
 <body>
-    <div>
-        <fast-text-field id="title">标题</fast-text-field>
-    </div>
-    <div>
-        <fast-text-area id="content">内容</fast-text-area>
-    </div>
-    <div>
-        <fast-button id="button">发布</fast-button>
-    </div>
+    <header>
+        <fast-anchor href="index.html">返回</fast-anchor>
+    </header>
+    <main>
+        <div>
+            <div>
+                <fast-text-field id="title">标题</fast-text-field>
+            </div>
+            <div>
+                <fast-text-area id="content">内容</fast-text-area>
+            </div>
+            <div>
+                <fast-button id="button">发布</fast-button>
+            </div>
+        </div>
+    </main>
 </body>
 
 </html>

@@ -15,7 +15,7 @@ import java.util.List;
  * 话题管理
  *
  * @author ZZZCNY
- * @version 1.2
+ * @version 1.3
  * @since 2021/10/20
  */
 public class Topics {
@@ -23,23 +23,22 @@ public class Topics {
     private String title;
     private String content;
     private int topicid;
-
+    
     public Topics(int userid, String title, String content) {
         this.userid = userid;
         this.title = title;
         this.content = content;
     }
-
+    
     public Topics() {
     }
-
+    
     /**
      * 新建话题
      *
      * @throws ClassNotFoundException 驱动程序加载失败
      * @throws SQLException           数据库异常
      * @throws IOException            读写异常
-     * @author ZZZCNY
      * @since 1.0
      */
     public void newTopic() throws ClassNotFoundException, SQLException, IOException {
@@ -64,7 +63,7 @@ public class Topics {
         preparedStatement.close();
         connection.close();
     }
-
+    
     /**
      * 加载话题
      *
@@ -72,7 +71,6 @@ public class Topics {
      * @throws ClassNotFoundException 驱动程序加载失败
      * @throws SQLException           数据库异常
      * @throws IOException            读写异常
-     * @author ZZZCNY
      * @since 1.1
      */
     public String viewTopic() throws ClassNotFoundException, SQLException, IOException {
@@ -123,7 +121,7 @@ public class Topics {
         Gson gson = new Gson();
         return gson.toJson(list);
     }
-
+    
     /**
      * 点赞
      *
@@ -131,7 +129,6 @@ public class Topics {
      * @param topicid 话题id
      * @throws ClassNotFoundException 驱动程序加载失败
      * @throws SQLException           数据库异常
-     * @author ZZZCNY
      * @since 1.2
      */
     public String likes(int userid, int topicid) throws ClassNotFoundException, SQLException {
@@ -154,7 +151,7 @@ public class Topics {
         connection.close();
         return likes;
     }
-
+    
     /**
      * 加载评论页话题
      *
@@ -163,7 +160,6 @@ public class Topics {
      * @throws ClassNotFoundException 驱动程序加载失败
      * @throws SQLException           数据库异常
      * @throws IOException            读写一场
-     * @author ZZZCNY
      * @deprecated
      */
     public String loadingCommentPageTopics(int topicid) throws ClassNotFoundException, SQLException, IOException {
@@ -212,5 +208,91 @@ public class Topics {
             return gson.toJson(topic);
         }
         return null;
+    }
+    
+    /**
+     * 加精
+     *
+     * @param topicid 话题ID
+     * @return
+     * @throws ClassNotFoundException 驱动程序加载失败
+     * @throws SQLException           数据库异常
+     * @since 1.3
+     */
+    public int finer(int topicid) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection connection = DriverManager.getConnection(MySQL.url, MySQL.user, MySQL.password);
+        PreparedStatement preparedStatement = connection.prepareStatement("SELECT essence FROM topics WHERE id = '" + topicid + "'");
+        ResultSet resultSet = preparedStatement.executeQuery();
+        resultSet.next();
+        if (resultSet.getInt(1) == 0) {
+            preparedStatement.executeUpdate("UPDATE topics SET essence = 1 WHERE id = '" + topicid + "'");
+            resultSet.close();
+            preparedStatement.close();
+            connection.close();
+            return 1;
+        } else {
+            preparedStatement.executeUpdate("UPDATE topics SET essence = 0 WHERE id = '" + topicid + "'");
+            resultSet.close();
+            preparedStatement.close();
+            connection.close();
+            return 0;
+        }
+    }
+    
+    /**
+     * 置顶
+     *
+     * @param topicid 话题ID
+     * @return
+     * @throws ClassNotFoundException 驱动程序加载失败
+     * @throws SQLException           数据库异常
+     * @since 1.3
+     */
+    public int sticky(int topicid) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection connection = DriverManager.getConnection(MySQL.url, MySQL.user, MySQL.password);
+        PreparedStatement preparedStatement = connection.prepareStatement("SELECT sticky FROM topics WHERE id = '" + topicid + "'");
+        ResultSet resultSet = preparedStatement.executeQuery();
+        resultSet.next();
+        if (resultSet.getInt(1) == 0) {
+            preparedStatement.executeUpdate("UPDATE topics SET sticky = 1 WHERE id = '" + topicid + "'");
+            resultSet.close();
+            preparedStatement.close();
+            connection.close();
+            return 1;
+        } else {
+            preparedStatement.executeUpdate("UPDATE topics SET sticky = 0 WHERE id = '" + topicid + "'");
+            resultSet.close();
+            preparedStatement.close();
+            connection.close();
+            return 0;
+        }
+    }
+    
+    /**
+     * 删除
+     *
+     * @param topicid 话题ID
+     * @throws ClassNotFoundException 驱动程序加载失败
+     * @throws SQLException           数据库异常
+     * @since 1.3
+     */
+    public void delete(int topicid) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection connection = DriverManager.getConnection(MySQL.url, MySQL.user, MySQL.password);
+        PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM topics WHERE id = '" + topicid + "'");
+        preparedStatement.executeUpdate();
+        preparedStatement.close();
+        connection.close();
+    }
+    
+    public void edit(int topicid, String title, String content) throws IOException {
+        RandomAccessFile randomAccessFile = new RandomAccessFile("topics" + topicid + ".json", "rw");
+        Gson gson = new Gson();
+        SaveTopic topic = new SaveTopic(title, content);
+        String json = gson.toJson(topic);
+        randomAccessFile.write(json.getBytes());
+        randomAccessFile.close();
     }
 }

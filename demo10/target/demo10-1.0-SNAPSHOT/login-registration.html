@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="dark">
     <title>登录</title>
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/html.css">
+    <link rel="stylesheet" href="styles/main.css">
     <script type="module" src="https://unpkg.com/@microsoft/fast-components"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
@@ -14,33 +17,38 @@
 </head>
 
 <body>
+    <header>
+        <fast-anchor href="index.html">返回</fast-anchor>
+    </header>
     <main>
-        <fast-tabs>
-            <fast-tab id="login">登录</fast-tab>
-            <fast-tab id="registration">注册</fast-tab>
-            <fast-tab-panel id="login-panel">
-                <div>
-                    <fast-text-field type="text" name="username" id="login-username">用户名</fast-text-field>
-                </div>
-                <div>
-                    <fast-text-field type="password" name="password" id="login-password">密码</fast-text-field>
-                </div>
-                <div>
-                    <fast-button id="login-button">登录</fast-button>
-                </div>
-            </fast-tab-panel>
-            <fast-tab-panel id="registration-panel">
-                <div>
-                    <fast-text-field type="text" name="username" id="registered-user-name">用户名</fast-text-field>
-                </div>
-                <div>
-                    <fast-text-field type="password" name="password" id="sign-up-password">密码</fast-text-field>
-                </div>
-                <div>
-                    <fast-button id="register-button">注册</fast-button>
-                </div>
-            </fast-tab-panel>
-        </fast-tabs>
+        <div>
+            <fast-tabs>
+                <fast-tab id="login">登录</fast-tab>
+                <fast-tab id="registration">注册</fast-tab>
+                <fast-tab-panel id="login-panel">
+                    <div>
+                        <fast-text-field type="text" name="username" id="login-username">用户名</fast-text-field>
+                    </div>
+                    <div>
+                        <fast-text-field type="password" name="password" id="login-password">密码</fast-text-field>
+                    </div>
+                    <div>
+                        <fast-button id="login-button">登录</fast-button>
+                    </div>
+                </fast-tab-panel>
+                <fast-tab-panel id="registration-panel">
+                    <div>
+                        <fast-text-field type="text" name="username" id="registered-user-name">用户名</fast-text-field>
+                    </div>
+                    <div>
+                        <fast-text-field type="password" name="password" id="sign-up-password">密码</fast-text-field>
+                    </div>
+                    <div>
+                        <fast-button id="register-button">注册</fast-button>
+                    </div>
+                </fast-tab-panel>
+            </fast-tabs>
+        </div>
     </main>
 </body>
 

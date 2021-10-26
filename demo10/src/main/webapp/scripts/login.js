@@ -1,3 +1,7 @@
+/**
+ * 登录
+ * @ZZZCNY
+ */
 $(document).ready(function () {
     $("#login-button").click(function () {
         var username = $("#login-username").val();

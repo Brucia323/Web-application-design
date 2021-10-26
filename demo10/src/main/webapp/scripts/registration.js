@@ -1,3 +1,7 @@
+/**
+ * 注册
+ * @ZZZCNY
+ */
 $(document).ready(function () {
     $("#register-button").click(function () {
         var username = $("#registered-user-name").val();

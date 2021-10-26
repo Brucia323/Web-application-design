@@ -1,9 +1,13 @@
+/**
+ * 显示评论
+ * @param {*} topicid
+ * @ZZZCNY
+ */
 function getComments(topicid) {
     $.get("ViewReplyServlet", { topicid }, function (data1) {
         var $comments = $("#" + topicid + " .comments");
         var json1 = JSON.parse(data1);
         for (var i = 0; i < json1.length; i++) {
-            console.log(json1[i]);
             $comments.append('<div id="r' + json1[i].replyid + '"><div class="rusername">' + json1[i].username + ' 回复 ' + json1[i].replyName + '</div><div class="rtime">' + json1[i].time + '</div><div class="rreply">' + json1[i].reply + '</div><fast-button class="rlikes" onclick="likes(' + topicid + ',' + json1[i].replyid + ')">👍' + json1[i].likes + '</fast-button><fast-button class="rreplyNum" onclick="appendrcomments(' + topicid + ',' + json1[i].replyid + ')">💬' + json1[i].replyNum + '</fast-button><div class="rcomments"></div></div>');
         }
         $comments.append('<div id="c' + topicid + '" class="releasediv"><fast-text-field class="comment">评论</fast-text-field><fast-button class="release">发布</fast-button></div>');
@@ -11,6 +15,12 @@ function getComments(topicid) {
     });
 }
 
+/**
+ * 添加评论回复
+ * @param {*} topicid
+ * @param {*} replyid
+ * @ZZZCNY
+ */
 function appendrcomments(topicid, replyid) {
     $(document).ready(function () {
         $("#" + topicid + " .comments #r" + replyid + " .rcomments").empty();
@@ -18,6 +28,12 @@ function appendrcomments(topicid, replyid) {
     });
 }
 
+/**
+ * 发布评论
+ * @param {*} topicid
+ * @param {*} replyid
+ * @ZZZCNY
+ */
 function release(topicid, replyid) {
     var reply = $("#" + topicid + " .comments #r" + replyid + " .rcomments .comment").val();
     $.get("ReplyServlet", { topicid: topicid, userid: getID(), reply: reply, replyid: replyid }, function (data) {
@@ -36,6 +52,11 @@ function release(topicid, replyid) {
     });
 }
 
+/**
+ * 发布评论
+ * @param {*} topicid
+ * @ZZZCNY
+ */
 function setTopicid(topicid) {
     $(document).ready(function () {
         $("#" + topicid + " .reply").click(function () {
