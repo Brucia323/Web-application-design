@@ -293,7 +293,6 @@ public class Topics {
      */
     public void edit(int topicid, String title, String content) throws IOException {
         writeToFile(topicid, title, content);
-        return;
     }
     
     /**

@@ -5,7 +5,7 @@
  */
 function sticky(topicid) {
     $.get("StickyServlet", { topicid: topicid }, function (data) {
-        if (data===1) {
+        if (data === 1) {
             //置顶
             const clone = $("#" + topicid).clone();
             $("#" + topicid).remove();

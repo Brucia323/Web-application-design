@@ -48,9 +48,9 @@ function searchFiner(topicid, essence) {
  * @param {*} sticky
  * @ZZZCNY
  */
-function searchSticky(topicid,sticky) {
+function searchSticky(topicid, sticky) {
     $(document).ready(function () {
-        if (sticky===true) {
+        if (sticky === true) {
             $("#" + topicid + " .control .controlSticky").empty()
                 .append("取消置顶");
         }
