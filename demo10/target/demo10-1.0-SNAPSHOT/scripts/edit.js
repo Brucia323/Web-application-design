@@ -1,6 +1,6 @@
-var title;
-var content;
-var topicid;
+let title;
+let content;
+let topicid;
 
 /**
  * 获取话题ID、标题、内容

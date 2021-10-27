@@ -1,5 +1,5 @@
-var title;
-var content;
+let title;
+let content;
 
 /**
  * 点击编辑
@@ -12,22 +12,4 @@ function edit(topicid) {
     localStorage.content = content;
     localStorage.topicid = topicid;
     $(location).attr("href", "edit.html");
-}
-
-/**
- * 获取标题
- * @returns 标题
- * @deprecated
- */
-function getTitle() {
-    return title;
-}
-
-/**
- * 获取内容
- * @returns 内容
- * @deprecated
- */
-function getContent() {
-    return content;
 }

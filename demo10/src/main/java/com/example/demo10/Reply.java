@@ -23,17 +23,17 @@ public class Reply {
     private int topicid;
     private String reply;
     private int replyid;
-
+    
     public Reply(int userid, int topicid, String reply, int replyid) {
         this.userid = userid;
         this.topicid = topicid;
         this.reply = reply;
         this.replyid = replyid;
     }
-
+    
     public Reply() {
     }
-
+    
     /**
      * 评论
      *
@@ -88,7 +88,7 @@ public class Reply {
         Gson gson = new Gson();
         return gson.toJson(reply2);
     }
-
+    
     /**
      * 加载评论
      *
@@ -147,7 +147,7 @@ public class Reply {
         Gson gson = new Gson();
         return gson.toJson(list);
     }
-
+    
     /**
      * 获取被回复的评论的用户名
      *
@@ -171,7 +171,7 @@ public class Reply {
         User user = new User();
         return user.getUsername(userid);
     }
-
+    
     /**
      * 获取话题评论数
      *
@@ -190,7 +190,7 @@ public class Reply {
         resultSet.next();
         return resultSet.getInt("reply");
     }
-
+    
     /**
      * 获取评论的评论数
      *
@@ -209,7 +209,7 @@ public class Reply {
         resultSet.next();
         return resultSet.getInt("reply");
     }
-
+    
     /**
      * 修改评论数
      *
@@ -225,7 +225,7 @@ public class Reply {
         PreparedStatement preparedStatement = connection.prepareStatement("UPDATE reply SET reply = reply + 1 WHERE id = '" + replyid + "'");
         preparedStatement.executeUpdate();
     }
-
+    
     /**
      * 点赞
      *
@@ -256,5 +256,5 @@ public class Reply {
         connection.close();
         return likes;
     }
-
+    
 }

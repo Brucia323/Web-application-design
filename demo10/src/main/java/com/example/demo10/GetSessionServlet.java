@@ -30,9 +30,9 @@ public class GetSessionServlet extends HttpServlet {
         String json = gson.toJson(user);
         out.print(json);
     }
-
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
-
+    
     }
 }

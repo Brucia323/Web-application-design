@@ -14,11 +14,6 @@
         <element id="directory" name="classes">
           <element id="module-output" name="demo10" />
         </element>
-        <element id="directory" name="lib">
-          <element id="file-copy" path="$PROJECT_DIR$/../../../../../../Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.26.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/../gson-2.8.8.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/../../../../../../Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.27.jar" />
-        </element>
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/target/demo10-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />

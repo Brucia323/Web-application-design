@@ -51,12 +51,7 @@ public class Topics {
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 topicid = resultSet.getInt(1);
-                RandomAccessFile randomAccessFile = new RandomAccessFile("topics" + topicid + ".json", "rw");
-                Gson gson = new Gson();
-                SaveTopic topic = new SaveTopic(title, content);
-                String json = gson.toJson(topic);
-                randomAccessFile.write(json.getBytes());
-                randomAccessFile.close();
+                writeToFile(topicid, title, content);
             }
             resultSet.close();
         }
@@ -159,7 +154,7 @@ public class Topics {
      * @return 话题
      * @throws ClassNotFoundException 驱动程序加载失败
      * @throws SQLException           数据库异常
-     * @throws IOException            读写一场
+     * @throws IOException            读写异常
      * @deprecated
      */
     public String loadingCommentPageTopics(int topicid) throws ClassNotFoundException, SQLException, IOException {
@@ -287,7 +282,29 @@ public class Topics {
         connection.close();
     }
     
+    /**
+     * 编辑
+     *
+     * @param topicid 话题ID
+     * @param title   标题
+     * @param content 内容
+     * @throws IOException 读写异常
+     * @since 1.3
+     */
     public void edit(int topicid, String title, String content) throws IOException {
+        writeToFile(topicid, title, content);
+        return;
+    }
+    
+    /**
+     * 写入文件
+     *
+     * @param topicid 话题ID
+     * @param title   标题
+     * @param content 内容
+     * @throws IOException 读写异常
+     */
+    private void writeToFile(int topicid, String title, String content) throws IOException {
         RandomAccessFile randomAccessFile = new RandomAccessFile("topics" + topicid + ".json", "rw");
         Gson gson = new Gson();
         SaveTopic topic = new SaveTopic(title, content);

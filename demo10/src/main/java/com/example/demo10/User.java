@@ -14,29 +14,29 @@ public class User {
     private String password;
     private boolean administrator;
     private int id;
-
+    
     public User() {
     }
-
+    
     public User(String username, boolean administrator, int id) {
         this.username = username;
         this.administrator = administrator;
         this.id = id;
     }
-
+    
     public User(String username, String password) {
         this.username = username;
         this.password = password;
     }
-
+    
     public User(String username) {
         this.username = username;
     }
-
+    
     public String getUsername() {
         return username;
     }
-
+    
     /**
      * 获取用户名
      *
@@ -57,11 +57,11 @@ public class User {
         }
         return null;
     }
-
+    
     public int getId() {
         return id;
     }
-
+    
     /**
      * 登录
      *
@@ -90,7 +90,7 @@ public class User {
             return false;
         }
     }
-
+    
     /**
      * 注册
      *
@@ -109,11 +109,11 @@ public class User {
         connection.close();
         return result > 0;
     }
-
+    
     public boolean getAdministrator() {
         return administrator;
     }
-
+    
     /**
      * 检查用户名是否重复
      *

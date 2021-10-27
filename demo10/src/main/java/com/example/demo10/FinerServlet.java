@@ -1,6 +1,5 @@
 package com.example.demo10;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,23 +11,21 @@ import java.sql.SQLException;
 @WebServlet(name = "FinerServlet", value = "/FinerServlet")
 public class FinerServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-        PrintWriter out= response.getWriter();
-        int topicid= Integer.parseInt(request.getParameter("topicid"));
-        Topics topics=new Topics();
+        PrintWriter out = response.getWriter();
+        int topicid = Integer.parseInt(request.getParameter("topicid"));
+        Topics topics = new Topics();
         try {
             out.print(topics.finer(topicid));
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+        } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
     }
-
+    
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
+    
     }
 }

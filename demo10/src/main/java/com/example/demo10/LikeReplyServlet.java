@@ -1,6 +1,5 @@
 package com.example.demo10;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,7 +11,7 @@ import java.sql.SQLException;
 @WebServlet(name = "LikeReplyServlet", value = "/LikeReplyServlet")
 public class LikeReplyServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
@@ -22,15 +21,13 @@ public class LikeReplyServlet extends HttpServlet {
         Reply reply = new Reply();
         try {
             out.print(reply.likes(userid, replyid, topicid));
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+        } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
     }
-
+    
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
+    
     }
 }

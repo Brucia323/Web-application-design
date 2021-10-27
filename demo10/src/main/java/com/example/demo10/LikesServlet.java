@@ -24,9 +24,9 @@ public class LikesServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
-
+    
     }
 }

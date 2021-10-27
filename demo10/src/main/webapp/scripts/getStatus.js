@@ -1,6 +1,6 @@
-var id = "0";
-var username = "";
-var administrator = false;
+let id = "0";
+let username = "";
+let administrator = false;
 
 /**
  * 获取登录状态
@@ -8,16 +8,16 @@ var administrator = false;
  */
 $(document).ready(function () {
     $.get("GetSessionServlet", {}, function (data) {
-        if (data != "Not logged in") {
-            var $account = $("#account");
+        if (data !== "Not logged in") {
+            const $account = $("#account");
             $account.empty();
-            var json = JSON.parse(data);
+            const json = JSON.parse(data);
             id = json.id;
             username = json.username;
             administrator = json.administrator;
             $account.append('<fast-button id="exit">' + username + '</fast-button>');
-            if (administrator == true) {
-                var $newtopic = $("#new-topic");
+            if (administrator === true) {
+                const $newtopic = $("#new-topic");
                 $newtopic.append('<fast-anchor href="new-topic.html">新建话题</fast-anchor>');
             }
         }
@@ -48,8 +48,8 @@ function getUsername() {
  * @ZZZCNY
  */
 function addControl(topicid) {
-    if (administrator == true) {
-        var $control = $("#" + topicid + " .control");
+    if (administrator === true) {
+        const $control = $("#" + topicid + " .control");
         $control.append('<fast-button class="controlSticky" onclick="sticky(' + topicid + ')">置顶</fast-button>');
         $control.append('<fast-button class="controlFiner" onclick="finer(' + topicid + ')">加精</fast-button>');
         $control.append('<fast-button class="controlDelete" onclick="edit(' + topicid + ')">编辑</fast-button>');

@@ -17,7 +17,7 @@ public class SendTopic {
     private int reply;
     private boolean sticky;
     private boolean essence;
-
+    
     public SendTopic(int topicid, String username, String title, String content, String time, int likes, int reply, boolean sticky, boolean essence) {
         this.topicid = topicid;
         this.username = username;
@@ -29,75 +29,75 @@ public class SendTopic {
         this.sticky = sticky;
         this.essence = essence;
     }
-
+    
     public int getTopicid() {
         return topicid;
     }
-
+    
     public void setTopicid(int topicid) {
         this.topicid = topicid;
     }
-
+    
     public String getUsername() {
         return username;
     }
-
+    
     public void setUsername(String username) {
         this.username = username;
     }
-
+    
     public String getTitle() {
         return title;
     }
-
+    
     public void setTitle(String title) {
         this.title = title;
     }
-
+    
     public String getContent() {
         return content;
     }
-
+    
     public void setContent(String content) {
         this.content = content;
     }
-
+    
     public String getTime() {
         return time;
     }
-
+    
     public void setTime(String time) {
         this.time = time;
     }
-
+    
     public int getLikes() {
         return likes;
     }
-
+    
     public void setLikes(int likes) {
         this.likes = likes;
     }
-
+    
     public int getReply() {
         return reply;
     }
-
+    
     public void setReply(int reply) {
         this.reply = reply;
     }
-
+    
     public boolean isSticky() {
         return sticky;
     }
-
+    
     public void setSticky(boolean sticky) {
         this.sticky = sticky;
     }
-
+    
     public boolean isEssence() {
         return essence;
     }
-
+    
     public void setEssence(boolean essence) {
         this.essence = essence;
     }
