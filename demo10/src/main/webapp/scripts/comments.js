@@ -36,20 +36,24 @@ function appendrcomments(topicid, replyid) {
  */
 function release(topicid, replyid) {
     const reply = $("#" + topicid + " .comments #r" + replyid + " .rcomments .comment").val();
-    $.get("ReplyServlet", { topicid: topicid, userid: getID(), reply: reply, replyid: replyid }, function (data) {
-        $("#" + topicid + " .comments #r" + replyid + " .rcomments").empty();
-        $("#c" + topicid).remove();
-        const $comments = $("#" + topicid + " .comments");
-        const json = JSON.parse(data);
-        $comments.append('<div id="r' + json.replyid + '"><div class="rusername">' + json.username + ' 回复 ' + json.replyName + '</div><div class="rtime">' + json.time + '</div><div class="rreply">' + json.reply + '</div><fast-button class="rlikes">👍' + json.likes + '</fast-button><fast-button class="rreplyNum" onclick="appendrcomments(' + topicid + ',' + json.replyid + ')">💬' + json.replyNum + '</fast-button><div class="rcomments"></div></div>');
-        $comments.append('<div id="c' + topicid + '"><fast-text-field class="comment">评论</fast-text-field><fast-button class="release">发布</fast-button></div>');
-        const lastReplyNum = json.lastReplyNum;
-        $("#" + topicid + " .comments #r" + replyid + " .rreplyNum").empty();
-        $("#" + topicid + " .comments #r" + replyid + " .rreplyNum").append("💬" + lastReplyNum);
-        const replyNum = json.topicReplyNum;
-        $("#" + topicid + " .reply").empty();
-        $("#" + topicid + " .reply").append("💬" + replyNum);
-    });
+    if (reply == "") {
+        alert("请输入评论内容");
+    } else {
+        $.get("ReplyServlet", { topicid: topicid, userid: getID(), reply: reply, replyid: replyid }, function (data) {
+            $("#" + topicid + " .comments #r" + replyid + " .rcomments").empty();
+            $("#c" + topicid).remove();
+            const $comments = $("#" + topicid + " .comments");
+            const json = JSON.parse(data);
+            $comments.append('<div id="r' + json.replyid + '"><div class="rusername">' + json.username + ' 回复 ' + json.replyName + '</div><div class="rtime">' + json.time + '</div><div class="rreply">' + json.reply + '</div><fast-button class="rlikes">👍' + json.likes + '</fast-button><fast-button class="rreplyNum" onclick="appendrcomments(' + topicid + ',' + json.replyid + ')">💬' + json.replyNum + '</fast-button><div class="rcomments"></div></div>');
+            $comments.append('<div id="c' + topicid + '"><fast-text-field class="comment">评论</fast-text-field><fast-button class="release">发布</fast-button></div>');
+            const lastReplyNum = json.lastReplyNum;
+            $("#" + topicid + " .comments #r" + replyid + " .rreplyNum").empty();
+            $("#" + topicid + " .comments #r" + replyid + " .rreplyNum").append("💬" + lastReplyNum);
+            const replyNum = json.topicReplyNum;
+            $("#" + topicid + " .reply").empty();
+            $("#" + topicid + " .reply").append("💬" + replyNum);
+        });
+    }
 }
 
 /**
@@ -65,16 +69,20 @@ function setTopicid(topicid) {
                 $("#c" + topicid + " .release").click(function () {
                     const userid = getID();
                     const reply = $("#c" + topicid + " .comment").val();
-                    $("#c" + topicid).remove();
-                    $.get("ReplyServlet", { topicid, userid, reply, replyid: "0" }, function (data) {
-                        const $comments = $("#" + topicid + " .comments");
-                        const json = JSON.parse(data);
-                        $comments.append('<div id="r' + json.replyid + '"><div class="rusername">' + json.username + ' 回复 ' + json.replyName + '</div><div class="rtime">' + json.time + '</div><div class="rreply">' + json.reply + '</div><fast-button class="rlikes">👍' + json.likes + '</fast-button><fast-button class="rreplyNum" onclick="appendrcomments(' + topicid + ',' + json.replyid + ')">💬' + json.replyNum + '</fast-button><div class="rcomments"></div></div>');
-                        $comments.append('<div id="c' + topicid + '"><fast-text-field class="comment">评论</fast-text-field><fast-button class="release">发布</fast-button></div>');
-                        const replyNum = json.topicReplyNum;
-                        $("#" + topicid + " .reply").empty();
-                        $("#" + topicid + " .reply").append("💬" + replyNum);
-                    });
+                    if (reply == "") {
+                        alert("请输入评论内容");
+                    } else {
+                        $("#c" + topicid).remove();
+                        $.get("ReplyServlet", { topicid, userid, reply, replyid: "0" }, function (data) {
+                            const $comments = $("#" + topicid + " .comments");
+                            const json = JSON.parse(data);
+                            $comments.append('<div id="r' + json.replyid + '"><div class="rusername">' + json.username + ' 回复 ' + json.replyName + '</div><div class="rtime">' + json.time + '</div><div class="rreply">' + json.reply + '</div><fast-button class="rlikes">👍' + json.likes + '</fast-button><fast-button class="rreplyNum" onclick="appendrcomments(' + topicid + ',' + json.replyid + ')">💬' + json.replyNum + '</fast-button><div class="rcomments"></div></div>');
+                            $comments.append('<div id="c' + topicid + '"><fast-text-field class="comment">评论</fast-text-field><fast-button class="release">发布</fast-button></div>');
+                            const replyNum = json.topicReplyNum;
+                            $("#" + topicid + " .reply").empty();
+                            $("#" + topicid + " .reply").append("💬" + replyNum);
+                        });
+                    }
                 });
             } else {
                 $("#" + topicid + " .comments").hide(1000);
