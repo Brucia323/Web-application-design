@@ -6,10 +6,10 @@ $(document).ready(function () {
     $("#button").click(function () {
         const title = $("#title").val();
         const content = $("#content").val();
-        if (title === "") {
+        if (title == "") {
             alert("请输入标题");
             return;
-        } else if (content === "") {
+        } else if (content == "") {
             alert("请输入内容");
             return;
         }

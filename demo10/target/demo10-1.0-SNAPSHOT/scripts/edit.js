@@ -21,7 +21,13 @@ $(document).ready(function () {
 function release() {
     title = $("#title").val();
     content = $("#content").val();
-    $.get("EditServlet", { topicid: topicid, title: title, content: content }, function () {
-        $(location).attr("href", "index.html");
-    });
+    if (title == "") {
+        alert("请输入标题");
+    } else if (content == "") {
+        alert("请输入内容");
+    } else {
+        $.get("EditServlet", { topicid: topicid, title: title, content: content }, function () {
+            $(location).attr("href", "index.html");
+        });
+    }
 }

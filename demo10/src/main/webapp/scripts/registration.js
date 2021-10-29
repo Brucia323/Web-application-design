@@ -6,11 +6,11 @@ $(document).ready(function () {
     $("#register-button").click(function () {
         const username = $("#registered-user-name").val();
         const password = $("#sign-up-password").val();
-        if (username === "" || password === "") {
+        if (username == "" || password == "") {
             alert("用户名或密码为空！");
         } else {
             $.post("RegisterServlet", { username, password }, function (result) {
-                if (result === "注册失败，请重试！") {
+                if (result == "注册失败，请重试！") {
                     alert(result);
                 } else {
                     $(location).attr("href", "login-registration.html");

@@ -5,7 +5,7 @@
  */
 function finer(topicid) {
     $.get("FinerServlet", { topicid: topicid }, function (data) {
-        if (data === 1) {
+        if (data == 1) {
             //加精
             $("#" + topicid + " .finer").show();
             $("#" + topicid + " .control .controlFiner").empty()
