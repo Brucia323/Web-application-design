@@ -5,6 +5,11 @@ function add() {
     var weight = $("#weight").val();
     var hight = $("#hight").val();
     $.get("AddServlet", { name, sex, age, weight, hight }, function () {
+        $("#name").val("");
+        $("#sex").val("");
+        $("#age").val("");
+        $("#weight").val("");
+        $("#hight").val("");
         inquire();
     });
 }

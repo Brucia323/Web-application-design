@@ -8,17 +8,18 @@
     <title>猜数字游戏</title>
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-        <script src="scripts/game.js"></script>
+    <script src="scripts/game.js"></script>
 </head>
 
 <body onload="load()">
     <h1 id="username"></h1>
-    <table>
-        <tr>输入你猜的数字</tr>
-        <tr><input type="text" id="input"></tr>
-        <tr><button onclick="guess()">猜</button></tr>
-        <tr id="result"></tr>
-    </table>
+    <div>
+        <span>输入你猜的数字</span>
+        <input type="text" id="input">
+        <button onclick="guess()">猜</button>
+        <button onclick="reset()">重置</button><br>
+        <div id="result"></div>
+    </div>
 </body>
 
 </html>
