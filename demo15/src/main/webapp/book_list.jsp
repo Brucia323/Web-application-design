@@ -14,6 +14,10 @@
     <link rel="stylesheet" href="styles/div.css">
 </head>
 <body>
+<form action="SearchServlet" method="get">
+    <input type="search" name="search">
+    <button type="submit">搜索</button>
+</form>
 <table>
     <tr>
         <th>图书编号</th>

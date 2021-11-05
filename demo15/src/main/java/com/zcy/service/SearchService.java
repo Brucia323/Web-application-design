@@ -7,12 +7,12 @@ import com.zcy.entity.PageBean;
 import java.sql.SQLException;
 import java.util.List;
 
-public class BookService {
-    public PageBean findByPage(int currentPage, int pageSize) throws SQLException, ClassNotFoundException {
+public class SearchService {
+    public PageBean search(String keyword, int currentPage, int pageSize) throws SQLException, ClassNotFoundException {
         MySQL mySQL = new MySQL();
-        int count = mySQL.getBookCount();
+        int count = mySQL.searchCount(keyword);
         int totalPage = count % pageSize == 0 ? count / pageSize : count / pageSize + 1;
-        List<Book> list = mySQL.findBookPage(currentPage, pageSize);
+        List<Book> list = mySQL.search(keyword, currentPage, pageSize);
         PageBean pageBean = new PageBean(currentPage, pageSize, count, totalPage, list);
         return pageBean;
     }
