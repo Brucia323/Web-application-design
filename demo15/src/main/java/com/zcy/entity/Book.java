@@ -8,67 +8,67 @@ package com.zcy.entity;
  * @since 2021/11/4
  */
 public class Book {
-    private int id;
-    private String name;
-    private String author;
-    private String year;
-    private String publisher;
-    private double price;
-    private int available;
+    private int bookId;
+    private String bookName;
+    private String bookAuthor;
+    private String bookPublishTime;
+    private String bookPublish;
+    private double bookPrice;
+    private int bookNum;
     
-    public int getId() {
-        return id;
+    public int getBookId() {
+        return bookId;
     }
     
-    public void setId(int id) {
-        this.id = id;
+    public void setBookId(int bookId) {
+        this.bookId = bookId;
     }
     
-    public String getName() {
-        return name;
+    public String getBookName() {
+        return bookName;
     }
     
-    public void setName(String name) {
-        this.name = name;
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
     }
     
-    public String getAuthor() {
-        return author;
+    public String getBookAuthor() {
+        return bookAuthor;
     }
     
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setBookAuthor(String bookAuthor) {
+        this.bookAuthor = bookAuthor;
     }
     
-    public String getPublisher() {
-        return publisher;
+    public String getBookPublishTime() {
+        return bookPublishTime;
     }
     
-    public void setPublisher(String publisher) {
-        this.publisher = publisher;
+    public void setBookPublishTime(String bookPublishTime) {
+        this.bookPublishTime = bookPublishTime;
     }
     
-    public String getYear() {
-        return year;
+    public String getBookPublish() {
+        return bookPublish;
     }
     
-    public void setYear(String year) {
-        this.year = year;
+    public void setBookPublish(String bookPublish) {
+        this.bookPublish = bookPublish;
     }
     
-    public double getPrice() {
-        return price;
+    public double getBookPrice() {
+        return bookPrice;
     }
     
-    public void setPrice(double price) {
-        this.price = price;
+    public void setBookPrice(double bookPrice) {
+        this.bookPrice = bookPrice;
     }
     
-    public int getAvailable() {
-        return available;
+    public int getBookNum() {
+        return bookNum;
     }
     
-    public void setAvailable(int available) {
-        this.available = available;
+    public void setBookNum(int bookNum) {
+        this.bookNum = bookNum;
     }
 }

@@ -28,7 +28,7 @@ public class MySQL {
      * @throws SQLException           数据库异常
      * @since 1.0
      */
-    public List<Book> findBook(int currentPage, int pageSize) throws ClassNotFoundException, SQLException {
+    public List<Book> findBookPage(int currentPage, int pageSize) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = DriverManager.getConnection(url, user, password);
         PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM book LIMIT ?, ?");
@@ -38,13 +38,13 @@ public class MySQL {
         List<Book> list = new ArrayList<>();
         while (resultSet.next()) {
             Book book = new Book();
-            book.setId(resultSet.getInt("id"));
-            book.setName(resultSet.getString("name"));
-            book.setAuthor(resultSet.getString("author"));
-            book.setYear(resultSet.getString("year"));
-            book.setPublisher(resultSet.getString("publisher"));
-            book.setPrice(resultSet.getDouble("price"));
-            book.setAvailable(resultSet.getInt("available"));
+            book.setBookId(resultSet.getInt("id"));
+            book.setBookName(resultSet.getString("name"));
+            book.setBookAuthor(resultSet.getString("author"));
+            book.setBookPublishTime(resultSet.getString("year"));
+            book.setBookPublish(resultSet.getString("publisher"));
+            book.setBookPrice(resultSet.getDouble("price"));
+            book.setBookNum(resultSet.getInt("available"));
             list.add(book);
         }
         resultSet.close();
@@ -61,7 +61,7 @@ public class MySQL {
      * @throws SQLException           数据库异常
      * @since 1.0
      */
-    public int count() throws ClassNotFoundException, SQLException {
+    public int getBookCount() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = DriverManager.getConnection(url, user, password);
         PreparedStatement preparedStatement = connection.prepareStatement("SELECT COUNT(*) FROM book");
@@ -74,4 +74,13 @@ public class MySQL {
         return count;
     }
     
+    public void reserve(int bookId) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection connection=DriverManager.getConnection(url,user,password);
+        PreparedStatement preparedStatement=connection.prepareStatement("UPDATE book SET available=available-1 WHERE id=?");
+        preparedStatement.setInt(1,bookId);
+        preparedStatement.executeUpdate();
+        preparedStatement.close();
+        connection.close();
+    }
 }

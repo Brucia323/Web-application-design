@@ -16,6 +16,14 @@ public class PageBean {
     private int totalPage;
     private List<Book> books;
     
+    public PageBean(int currentPage, int pageSize, int count, int totalPage, List<Book> list) {
+        this.currentPage = currentPage;
+        this.pageSize = pageSize;
+        this.totalCount = count;
+        this.totalPage = totalPage;
+        this.books = list;
+    }
+    
     public int getCurrentPage() {
         return currentPage;
     }
