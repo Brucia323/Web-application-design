@@ -13,7 +13,6 @@ public class BookService {
         int count = mySQL.getBookCount();
         int totalPage = count % pageSize == 0 ? count / pageSize : count / pageSize + 1;
         List<Book> list = mySQL.findBookPage(currentPage, pageSize);
-        PageBean pageBean = new PageBean(currentPage, pageSize, count, totalPage, list);
-        return pageBean;
+        return new PageBean(currentPage, pageSize, count, totalPage, list);
     }
 }

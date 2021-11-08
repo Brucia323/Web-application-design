@@ -34,6 +34,10 @@ public class MySQL {
         PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM book LIMIT ?, ?");
         preparedStatement.setInt(1, (currentPage - 1) * pageSize);
         preparedStatement.setInt(2, pageSize);
+        return getBooks(connection, preparedStatement);
+    }
+    
+    private List<Book> getBooks(Connection connection, PreparedStatement preparedStatement) throws SQLException {
         ResultSet resultSet = preparedStatement.executeQuery();
         List<Book> list = new ArrayList<>();
         while (resultSet.next()) {
@@ -85,7 +89,8 @@ public class MySQL {
     public void reserve(int bookId) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = DriverManager.getConnection(url, user, password);
-        PreparedStatement preparedStatement = connection.prepareStatement("UPDATE book SET available=available-1 WHERE id=?");
+        PreparedStatement preparedStatement = connection.prepareStatement("UPDATE book SET available = available-1 " +
+                "WHERE id = ?");
         preparedStatement.setInt(1, bookId);
         preparedStatement.executeUpdate();
         preparedStatement.close();
@@ -111,23 +116,7 @@ public class MySQL {
         preparedStatement.setString(1, "%" + bookName + "%");
         preparedStatement.setInt(2, (currentPage - 1) * pageSize);
         preparedStatement.setInt(3, pageSize);
-        ResultSet resultSet = preparedStatement.executeQuery();
-        List<Book> list = new ArrayList<>();
-        while (resultSet.next()) {
-            Book book = new Book();
-            book.setBookId(resultSet.getInt("id"));
-            book.setBookName(resultSet.getString("name"));
-            book.setBookAuthor(resultSet.getString("author"));
-            book.setBookPublishTime(resultSet.getString("year"));
-            book.setBookPublish(resultSet.getString("publisher"));
-            book.setBookPrice(resultSet.getDouble("price"));
-            book.setBookNum(resultSet.getInt("available"));
-            list.add(book);
-        }
-        resultSet.close();
-        preparedStatement.close();
-        connection.close();
-        return list;
+        return getBooks(connection, preparedStatement);
     }
     
     /**

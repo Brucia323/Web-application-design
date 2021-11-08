@@ -24,15 +24,13 @@ public class PageServlet extends HttpServlet {
             PageBean pageBean = bookService.findByPage(page, pageSize);
             request.setAttribute("pageBean", pageBean);
             request.getRequestDispatcher("/book_list.jsp").forward(request, response);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
     
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
     
     }
 }

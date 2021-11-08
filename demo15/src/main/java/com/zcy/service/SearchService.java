@@ -13,7 +13,6 @@ public class SearchService {
         int count = mySQL.searchCount(keyword);
         int totalPage = count % pageSize == 0 ? count / pageSize : count / pageSize + 1;
         List<Book> list = mySQL.search(keyword, currentPage, pageSize);
-        PageBean pageBean = new PageBean(currentPage, pageSize, count, totalPage, list);
-        return pageBean;
+        return new PageBean(currentPage, pageSize, count, totalPage, list);
     }
 }

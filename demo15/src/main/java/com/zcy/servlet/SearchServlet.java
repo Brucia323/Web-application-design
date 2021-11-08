@@ -1,13 +1,13 @@
 package com.zcy.servlet;
 
-import com.zcy.dao.MySQL;
 import com.zcy.entity.PageBean;
-import com.zcy.service.BookService;
 import com.zcy.service.SearchService;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -27,16 +27,14 @@ public class SearchServlet extends HttpServlet {
         try {
             PageBean pageBean= searchService.search(search, page, pageSize);
             request.setAttribute("pageBean", pageBean);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         request.getRequestDispatcher("/search.jsp").forward(request, response);
     }
     
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
     
     }
 }
