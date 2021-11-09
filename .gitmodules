@@ -1,0 +1,3 @@
+[submodule "Conference-Management-System"]
+  path = Conference-Management-System
+  url = git@github.com:ZZZCNY/Conference-Management-System.git
