@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@fluentui/web-components": "^2.0.2",
+    "@microsoft/fast-components": "^2.16.4",
+    "jquery": "^3.6.0"
+  }
+}

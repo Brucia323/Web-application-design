@@ -1,0 +1,30 @@
+fast-card {
+    padding: 24px;
+    margin: 8px auto;
+}
+
+header {
+    position: sticky;
+    top: 0px;
+    z-index: 9999;
+}
+
+header>fast-card {
+    text-align: center;
+}
+
+#tuichu {
+    float: right;
+}
+
+fast-tabs{
+    justify-items: center;
+}
+
+fast-button{
+    padding: 0px 24px;
+}
+
+fast-dialog{
+    padding: 24px;
+}

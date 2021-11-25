@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="FileMapper">
+    <select id="selectMyFile">
+        select * from file where user_id = #{userId} limit #{currentPage}, 10
+    </select>
+    <select id="selectPublicFile">
+        select * from file where authority = '公开' limit #{currentPage}, 10
+    </select>
+    <insert id="insertFile">
+        insert into file(filename, user_id, authority) VALUES (#{fileName}, #{userId}, #{authority})
+    </insert>
+    <update id="updateFileAuthority">
+        update file set authority = #{authority} where file_id = #{fileId}
+    </update>
+    <delete id="deleteMyFile">
+        delete from file where file_id = #{fileId}
+    </delete>
+</mapper>
