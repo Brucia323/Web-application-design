@@ -12,7 +12,7 @@
     <select id="selectUserToCheckUsername" resultType="int">
         select count(*) from user where username = #{username}
     </select>
-    <insert id="insertUserToLogup" keyProperty="user_id">
+    <insert id="insertUserToLogup" keyProperty="user_id" useGeneratedKeys="true">
         insert into user(username, password) VALUES (#{username}, #{password})
     </insert>
 </mapper>

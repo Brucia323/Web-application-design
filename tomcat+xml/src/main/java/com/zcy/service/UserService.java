@@ -39,6 +39,7 @@ public class UserService {
             map.put("password", password);
             SqlSession session = GetSqlSession.getSqlSession();
             int userId = session.insert("UserMapper.insertUserToLogup", map);
+            session.commit();
             session.close();
             return userId;
         } else {
