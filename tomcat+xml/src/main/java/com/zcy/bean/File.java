@@ -17,7 +17,7 @@ public class File {
     /**
      * 用户id
      */
-    private int userId;
+    private String username;
     /**
      * 权限
      */
@@ -39,12 +39,12 @@ public class File {
         this.fileName = fileName;
     }
     
-    public int getUserId() {
-        return userId;
+    public String getUsername() {
+        return username;
     }
     
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUsername(String username) {
+        this.username = username;
     }
     
     public String getAuthority() {
