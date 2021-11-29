@@ -12,11 +12,11 @@ class Logup extends React.Component {
         this.handleLogupClick = this.handleLogupClick.bind(this)
     }
 
-    handleChangeUsername() {
+    handleChangeUsername(event) {
         this.setState({ username: event.target.value })
     }
 
-    handleChangePassword() {
+    handleChangePassword(event) {
         this.setState({ password: event.target.value })
     }
 

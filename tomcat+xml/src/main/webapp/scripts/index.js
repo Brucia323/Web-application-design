@@ -36,7 +36,7 @@ class Filethead extends React.Component {
                 <tr>
                     <th>文件名</th>
                     <th>用户名</th>
-                    {this.props.login && <th>操作</th>}
+                    {this.props.login && <th>下载</th>}
                 </tr>
             </thead>
         )
@@ -70,7 +70,6 @@ class Filetbody extends React.Component {
         $.post(
             'FileServlet',
             {
-                login: this.props.login,
                 page: this.state == null ? 1 : this.state.currentPage,
                 flag: 'look'
             },
@@ -83,7 +82,7 @@ class Filetbody extends React.Component {
                         <td>{file.username}</td>
                         {this.props.login && (
                             <td>
-                                <button>下载</button>
+                                <a target='_blank' href={'FileServlet?fileId=' + file.fileId}><button>下载</button></a>
                             </td>
                         )}
                     </tr>
@@ -122,9 +121,8 @@ class Header extends React.Component {
     render() {
         return (
             <header id='header'>
-                <button>首页</button>
+                <a href='index.html'><button>首页</button></a>
                 {this.props.login && <a href='myfile.html'><button>我的文件</button></a>}
-                {this.props.login && <a href='me.html'><button>个人中心</button></a>}
                 {this.props.login
                     ? <button onClick={this.handleLogoutClick}>退出</button>
                     : <a href='login.html'><button>登录/注册</button></a>}

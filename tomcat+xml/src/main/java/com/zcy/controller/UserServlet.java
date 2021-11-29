@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -43,7 +44,12 @@ public class UserServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         UserService user = new UserService();
-        return user.login(username, password);
+        int userId=user.login(username, password);
+        if(userId!=0){
+            HttpSession httpSession= request.getSession();
+            httpSession.setAttribute("userId",userId);
+        }
+        return userId;
     }
     
     /**
@@ -56,7 +62,12 @@ public class UserServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         UserService user = new UserService();
-        return user.logup(username, password);
+        int userId=user.logup(username, password);
+        if(userId!=0){
+            HttpSession httpSession= request.getSession();
+            httpSession.setAttribute("userId",userId);
+        }
+        return userId;
     }
     
     /**

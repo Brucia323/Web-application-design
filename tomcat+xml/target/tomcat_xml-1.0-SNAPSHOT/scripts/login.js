@@ -105,6 +105,12 @@ class Remember extends React.Component {
         }
     }
 
+    componentWillUnmount() {
+        if (this.state.checked) {
+            localStorage.username = $('#username').val()
+        }
+    }
+
     render() {
         return (
             <>
