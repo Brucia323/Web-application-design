@@ -36,7 +36,7 @@ class App extends React.Component {
                     <form method='post' action='FileServlet' encType='multipart/form-data'>
                         <label>
                             上传文件：
-                            <input type="file" id='file' name='file' multiple />
+                            <input type="file" id='file' name='file' multiple required />
                         </label>
                         <br />
                         <button type='submit' onClick={this.handleSubmit}>上传</button>
@@ -76,6 +76,7 @@ class Filethead extends React.Component {
                     <th>文件名</th>
                     <th>权限</th>
                     <th>下载</th>
+                    <th>删除</th>
                 </tr>
             </thead>
         )
@@ -105,6 +106,12 @@ class Filetbody extends React.Component {
         })
     }
 
+    handleDeleteClick(id, e) {
+        $.post('FileServlet', { fileId: id, flag: 'delete' }, () => {
+            $(location).attr('href','myfile.html')
+        })
+    }
+
     componentDidMount() {
         $.post(
             'FileServlet',
@@ -123,6 +130,7 @@ class Filetbody extends React.Component {
                         <td>
                             <a target='_blank' href={'FileServlet?fileId=' + file.fileId}><button>下载</button></a>
                         </td>
+                        <td><button onClick={(e) => this.handleDeleteClick(file.fileId, e)}>删除</button></td>
                     </tr>
                 )
                 const page = (

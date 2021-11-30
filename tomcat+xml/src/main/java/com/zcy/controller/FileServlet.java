@@ -50,6 +50,8 @@ public class FileServlet extends HttpServlet {
             uploadFile1(request);
         } else if (flag.equals("lookme")) {
             result = getMyFileList(request);
+        } else if (flag.equals("delete")) {
+            deleteFile(request);
         }
         out.print(result);
     }
@@ -160,5 +162,30 @@ public class FileServlet extends HttpServlet {
         }
         FileService fileService = new FileService();
         return fileService.readMyFileList(page, Integer.parseInt(request.getParameter("userId")));
+    }
+    
+    /**
+     * 修改文件权限
+     *
+     * @param request 请求
+     * @deprecated
+     */
+    private void updateFileAuthority(HttpServletRequest request) throws IOException {
+        int fileId = Integer.parseInt(request.getParameter("fileId"));
+        System.out.println(fileId);
+        String authority = request.getParameter("authority");
+        FileService fileService = new FileService();
+        fileService.updateAuthority(fileId, authority);
+    }
+    
+    /**
+     * 删除文件
+     *
+     * @param request 请求
+     */
+    private void deleteFile(HttpServletRequest request) throws IOException {
+        int fileId = Integer.parseInt(request.getParameter("fileId"));
+        FileService fileService = new FileService();
+        fileService.deleteFile(fileId);
     }
 }

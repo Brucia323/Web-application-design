@@ -103,4 +103,32 @@ public class FileService {
         Gson gson = new Gson();
         return gson.toJson(fileList);
     }
+    
+    /**
+     * 修改文件权限
+     *
+     * @param fileId 文件id
+     * @param authority 权限
+     */
+    public void updateAuthority(int fileId, String authority) throws IOException {
+        Map<String, String> map = new HashMap<>();
+        map.put("fileId", String.valueOf(fileId));
+        map.put("authority", authority);
+        SqlSession session = GetSqlSession.getSqlSession();
+        session.update("FileMapper.updateFileAuthority", map);
+        session.commit();
+        session.close();
+    }
+    
+    /**
+     * 删除文件
+     *
+     * @param fileId 文件id
+     */
+    public void deleteFile(int fileId) throws IOException {
+        SqlSession session = GetSqlSession.getSqlSession();
+        session.delete("FileMapper.deleteMyFile", fileId);
+        session.commit();
+        session.close();
+    }
 }
