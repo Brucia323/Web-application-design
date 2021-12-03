@@ -6,8 +6,8 @@
     <select id="selectUserToLogin" resultType="int">
         select user_id from user where username = #{username} and password = #{password}
     </select>
-    <select id="selectUserNameByUserId" resultType="string">
-        select username from user where user_id = #{username}
+    <select id="selectUserNameByUserId" resultType="int">
+        select username from user where user_id = #{userId}
     </select>
     <select id="selectUserToCheckUsername" resultType="int">
         select count(*) from user where username = #{username}
