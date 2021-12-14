@@ -23,9 +23,9 @@ class App extends React.Component {
             })
         } else {
             let flag = true
-            for (let i = 0; i < wareList.length; i++) {
-                if (wareList[i].wareId == wareId) {
-                    wareList[i].wareNum++
+            for (let ware in wareList) {
+                if (ware.wareId == wareId) {
+                    ware.wareNum++
                     flag = false
                 }
             }
