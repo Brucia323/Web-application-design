@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "jshint": "^2.13.1",
+    "jshint": "^2.13.6",
     "standard": "^16.0.4"
   }
 }
