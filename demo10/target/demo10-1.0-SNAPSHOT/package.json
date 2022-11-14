@@ -3,6 +3,6 @@
     "@microsoft/fast-components": "^2.14.2",
     "antd": "^4.16.13",
     "jquery": "^3.6.0",
-    "jshint": "^2.13.1"
+    "jshint": "^2.13.6"
   }
 }
