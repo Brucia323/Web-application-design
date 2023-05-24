@@ -1,5 +1,0 @@
-Manifest-Version: 1.0
-Created-By: IntelliJ IDEA
-Built-By: ZZZCNY
-Build-Jdk: AdoptOpenJDK (HostSpot) version 11.0.11
-
